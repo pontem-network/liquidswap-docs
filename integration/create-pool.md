@@ -28,12 +28,24 @@ Create stable liquidity pool
 
 ### Adding Liquidity
 
-Let's add liquidity to our pool:
+Let's add liquidity to **our** pool:
 
 {% embed url="https://gist.github.com/borispovod/1fbb2f7c3fd76a50371241ea89700c64" %}
 Adding liquidity
 {% endembed %}
 
 As you see `add_liquidity` now allows to add liquidity in just created pool and after it deposit the remainders of both `X` and `Y` coins back on account, together with new `LP` coins.&#x20;
+
+_During real world example we would recommend to deposit liquidity immidiatelly in the same transaction you created pool, also we would recommend to use slippage values for amount of LP coins you are getting in exchange for your liquidity._
+
+### Adding Liquidity To Existing Pool
+
+Let's say we want to add liquidity to existing `BTC / Aptos` created by Pontem team.
+
+Only difference that we use `@liquidswap` address as pool address and different `LP`.
+
+{% embed url="https://gist.github.com/borispovod/c6abe785342fd3a18059d7e155647dd4" %}
+Adding liquidity to existing pool
+{% endembed %}
 
 _During real world example we would recommend to deposit liquidity immidiatelly in the same transaction you created pool, also we would recommend to use slippage values for amount of LP coins you are getting in exchange for your liquidity._
