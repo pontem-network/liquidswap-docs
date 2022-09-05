@@ -69,7 +69,7 @@ To don't confuse, Liquidswap uses frontend with pre-filled pools and our pools r
 
 The provided generics `X`, `Y`, and `LP` are used to determine which pool we will use, together with the `pool_owner` address. Almost all public functions have described generics and `pool_owner` address argument so it can always be clear which pool is currently used.
 
-To be clear, let's say `X` contains Aptos coin type - `0x1::aptos_coin::APTOS` and `Y` is some wrapped USDT - `wrapped_coins::usdt::USDT`, and in the LP has some user deployed type, like `user_address::lp::LP`.
+To be clear, let's say `X` contains Aptos coin type - `0x1::aptos_coin::AptosCoin` and `Y` is some wrapped USDT - `wrapped_coins::usdt::USDT`, and in the LP has some user deployed type, like `user_address::lp::LP`.
 
 #### Coins Sorting
 
@@ -167,7 +167,7 @@ Developers iterating with functions can order generics however they want. Let's 
 
 ```
 router::swap_exact_coin_for_coin<
-    aptos_framework::aptos_coin::APTOS,
+    aptos_framework::aptos_coin::AptosCoin,
     liqudswap_lp::coins::USDT,
 >
 ```
@@ -177,7 +177,7 @@ Or if i can do it vise-vera (`USDT` -> `APTOS`), i can just reorder generics:
 ```
 router::swap_exact_coin_for_coin<
     liqudswap_lp::coins::USDT,
-    aptos_framework::aptos_coin::APTOS,
+    aptos_framework::aptos_coin::AptosCoin,
 >
 ```
 

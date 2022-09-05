@@ -10,7 +10,7 @@ LP Template
 
 _Don't forget to change account name on your named address: `liquidswap_lp.`_
 
-After that, we can do a call to Router to create new APTOS / BTC liquidity pool on your account.
+After that, we can do a call to Router to create new `APTOS` / `BTC` liquidity pool on your account.
 
 We can extend example from previous guide and add new function:
 
