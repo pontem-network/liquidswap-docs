@@ -22,12 +22,12 @@ Visit it and try it yourself. Provided feedback would be appreciated 😊
 
 ## Developer Links
 
-To be more familiar with Liquidswap on the top level, start with [Protocol Overview](docs/protocol-overview.md).
+To be more familiar with Liquidswap on the top level, start with [Protocol Overview](protocol-overview.md).
 
 To be more to the point, look at our tutorials:
 
-* [Smart contracts usage & integrations](docs/integration.md)
-* [Frontend integration](docs/typescript-sdk.md)
+* [Smart contracts usage & integrations](smart-contracts-integration/)
+* [Frontend integration](typescript-sdk.md)
 
 If you are looking for source code, visit our [Github](https://github.com/pontem-network):
 

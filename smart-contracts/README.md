@@ -22,7 +22,7 @@ You can always see the latest release on the [Releases](https://github.com/ponte
 
 This document explains how Liquidswap contracts are organized at the top level.
 
-But if you are already familiar with it, you can go to [integrations](../liquidswap/integration.md) docs.
+But if you are already familiar with it, you can go to [integrations](../smart-contracts-integration/) docs.
 
 ## Liquidity Pool
 
@@ -32,7 +32,7 @@ The Liquidity Pool module implements all swap logic, LP logic, math (constant pr
 
 The core thing of the Liquidity Pool contract is a resource that describes liquidity pools themselves and holds all needed information:
 
-```
+```rust
 struct LiquidityPool<phantom X, phantom Y, phantom LP> has key {
     coin_x_reserve: Coin<X>,
     coin_y_reserve: Coin<Y>,
@@ -88,7 +88,7 @@ During the creation of the pool, the curve type can be provided; it's simple, as
 * `1` - Stable curve type.
 * `2` - Uncorrelated curve type.
 
-You can read more about curve formulas at the [Protocol Overview](../liquidswap/protocol-overview.md) page.
+You can read more about curve formulas at the [Protocol Overview](../protocol-overview.md) page.
 
 ### LP coins
 
@@ -159,7 +159,7 @@ There can be many routers from different teams, yet Liquidswap standard Router s
 
 ### Functions
 
-The router functions accept `Coin<X>` and `Coin<Y>`, `Coin<LP>` resource from aptos\_framework::coin so that they can be easily integrated with 3rd party module. But it can't be called directly from the transaction; if you need entry points, look at [Scripts](./#scripts).
+The router functions accept `Coin<X>` and `Coin<Y>`, `Coin<LP>` resource from aptos\_framework::coin so that they can be easily integrated with 3rd party module. But it can't be called directly from the transaction; if you need entry points, look at Scripts.
 
 Developers iterating with functions can order generics however they want. Let's say if I want to swap `aptos_framework::aptos_coin::APTOS` to `liqudswap_lp::coins::USDT` i can just use the function:
 
@@ -296,7 +296,7 @@ last_price_y_cumulative: u128,
 
 And the function of Liquidity Pool module `get_cumulative_prices<X, Y, LP>` allows to extract prices from the pool.
 
-If you are interesting in Oracle implementation look at our #[integration](../liquidswap/integration.md) guides.
+If you are interesting in Oracle implementation look at our [integration](../smart-contracts-integration/) guides.
 
 #### Treasury
 
