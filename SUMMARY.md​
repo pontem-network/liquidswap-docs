@@ -13,4 +13,6 @@
 * [Guides](guides/README.md)
   * [Smart Contracts Integration](guides/smart-contracts-integration.md)
   * [Typescript SDK](guides/typescript-sdk.md)
-* [Liquidswap DApp](dapp.md)
+* [Liquidswap DApp](dapp/README.md)
+  * [Custom Pools](https://app.gitbook.com/s/7hOyaMi2Pz1hDJkk7WIF/dapp#adding-custom-pool-and-tokens)
+* [Coins Registry](https://app.gitbook.com/s/7hOyaMi2Pz1hDJkk7WIF/dapp#coins-registry)
