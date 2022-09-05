@@ -32,6 +32,7 @@ The Liquidity Pool module implements all swap logic, LP logic, math (constant pr
 
 The core thing of the Liquidity Pool contract is a resource that describes liquidity pools themselves and holds all needed information:
 
+{% code lineNumbers="true" %}
 ```rust
 struct LiquidityPool<phantom X, phantom Y, phantom LP> has key {
     coin_x_reserve: Coin<X>,
@@ -47,6 +48,7 @@ struct LiquidityPool<phantom X, phantom Y, phantom LP> has key {
     locked: bool,
 }
 ```
+{% endcode %}
 
 The resource holds all important information, including:
 
