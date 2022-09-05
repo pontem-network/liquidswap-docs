@@ -1,7 +1,3 @@
----
-description: Welcome!
----
-
 # Introduction
 
 ![Liquidswap UI](.gitbook/assets/liquidswap.png)
