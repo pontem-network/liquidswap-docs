@@ -26,7 +26,7 @@ To be more familiar with Liquidswap on the top level, start with [Protocol Overv
 
 To be more to the point, look at our tutorials:
 
-* [Smart contracts usage & integrations](smart-contracts-integration/)
+* [Smart contracts usage & integrations](integration/)
 * [Frontend integration](typescript-sdk.md)
 
 If you are looking for source code, visit our [Github](https://github.com/pontem-network):

@@ -22,7 +22,7 @@ You can always see the latest release on the [Releases](https://github.com/ponte
 
 This document explains how Liquidswap contracts are organized at the top level.
 
-But if you are already familiar with it, you can go to [integrations](../smart-contracts-integration/) docs.
+But if you are already familiar with it, you can go to [integrations](../integration/) docs.
 
 ## Liquidity Pool
 
@@ -298,7 +298,7 @@ last_price_y_cumulative: u128,
 
 And the function of Liquidity Pool module `get_cumulative_prices<X, Y, LP>` allows to extract prices from the pool.
 
-If you are interesting in Oracle implementation look at our [integration](../smart-contracts-integration/) guides.
+If you are interesting in Oracle implementation look at our [integration](../integration/) guides.
 
 #### Treasury
 
