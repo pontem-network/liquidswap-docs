@@ -83,7 +83,7 @@ The current sorting algorithm takes coins symbols, convert them to bytes using `
 * Implementation in Javascript - [Coins Sorting In JS](https://gist.github.com/borispovod/7c81bf5d82dbae1c26b95ff8b6861d4a).
 * Also, it supported in [Typescript SDK](../liquidswap/typescript-sdk.md).
 
-### Curve types.
+### Curve types
 
 During the creation of the pool, the curve type can be provided; it's simple, as an integer used to determine which type of pool must be created:
 
