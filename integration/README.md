@@ -1,4 +1,4 @@
-# Smart Contracts Integration
+# Integration
 
 * Smart contracts source code can be found in [Liquidswap](https://github.com/pontem-network/liquidswap) repository.
 * The current version of Liquidswap deployed on address `0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9.`
@@ -42,5 +42,5 @@ Test coins deployed already deployed on testnet and can be used in your project:
 
 Now we can continue with the rest of things. Try to compile. You mustn't see any errors.
 
-_The Liquidswap contracts always point to the latest published devnet revision, so if you have troubles after adding our dependencies, remove `dependencies.AptosFramework` at all._
+_The Liquidswap contracts always point to the latest `AptosFramework` devnet revision, so if you have troubles after adding our dependencies, remove `dependencies.AptosFramework` at all from your project._
 
