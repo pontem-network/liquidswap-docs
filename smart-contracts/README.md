@@ -65,10 +65,7 @@ Unlike Uniswap, for Liquidswap, there could be many pools with the same coins in
 
 To don't confuse, Liquidswap uses frontend with pre-filled pools and our pools registry to show users mostly verified pools.
 
-### Functions
-
-**In most cases, you don't need to use the `LiquidityPool` module itself.
-`Router` module provides high-level wrappers around `LiquidityPool`, which simplify most of the tasks.**
+### Generics
 
 A set of `(X, Y, LP, pool_address)` uniquely identifies a LiquidityPool on the blockchain.
 
@@ -86,6 +83,11 @@ public entry fun swap<X, Y, LP>(... pool_addr: address, ...) {}
 * `pool_address` - pool owner address
 
 Note: **Generics must be sorted**, see [Coins Sorting](./#coins-sorting).
+
+### Functions
+
+**In most cases, you don't need to use the `LiquidityPool` module itself.
+`Router` module provides high-level wrappers around `LiquidityPool`, which simplify most of the tasks.**
 
 Operations with liquidity:
 
@@ -175,15 +177,17 @@ Developers iterating with functions can order generics however they want. Let's 
 router::swap_exact_coin_for_coin<
     aptos_framework::aptos_coin::AptosCoin,
     liqudswap_lp::coins::USDT,
+    ...
 >
 ```
 
-Or if i can do it vise-vera (`USDT` -> `APTOS`), i can just reorder generics:
+Or if i can do it vice-versa (`USDT` -> `APTOS`), i can just reorder generics:
 
 ```
 router::swap_exact_coin_for_coin<
     liqudswap_lp::coins::USDT,
     aptos_framework::aptos_coin::AptosCoin,
+    ...
 >
 ```
 
