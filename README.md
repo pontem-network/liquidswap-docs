@@ -6,7 +6,7 @@ The [Liquidswap](https://liquidswap.com) protocol is AMM (Automated Market Maker
 
 Supported features and benefits:
 
-* Allows exchanging all types of cryptocurrencies, both uncorrelated (non-stable) and stable coins.
+* Allows both uncorrelated (Uniswap V2-like) and stable swaps
 * DAO treasury is implemented, which receive a part of every swap transaction fee.
 * Unlike Uniswap, Liquidswap allows the creation of many pools with even the same pairs but on different addresses. It's one of the nuances of developing the protocol on Move language and can be a nice feature together with others like dynamic fees in the distant future. Yet, still, we think that pools presented in UI will be the most popular now.
 * Written in Move language: new smart-contract language designed with security in mind. 
