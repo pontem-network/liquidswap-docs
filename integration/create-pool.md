@@ -45,7 +45,7 @@ Let's say we want to add liquidity to existing `BTC / Aptos` created by Pontem t
 The only difference is that we use `@liquidswap` address as the pool address and a different LP.
 
 {% embed url="https://gist.github.com/borispovod/c6abe785342fd3a18059d7e155647dd4" %}
-Adding liquidity to existing pool
+Add liquidity to Pontem APTOS / BTC pool
 {% endembed %}
 
 _During real-world examples, we would recommend depositing liquidity immediately in the same transaction you created pool. Also, we recommend using slippage values for the amount of LP coins you get in exchange for your liquidity._
