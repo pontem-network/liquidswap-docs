@@ -65,11 +65,44 @@ Unlike Uniswap, for Liquidswap, there could be many pools with the same coins in
 
 To don't confuse, Liquidswap uses frontend with pre-filled pools and our pools registry to show users mostly verified pools.
 
-### Generics
+### Functions
 
-The provided generics `X`, `Y`, and `LP` are used to determine which pool we will use, together with the `pool_owner` address. Almost all public functions have described generics and `pool_owner` address argument so it can always be clear which pool is currently used.
+**In most cases, you don't need to use the `LiquidityPool` module itself.
+`Router` module provides high-level wrappers around `LiquidityPool`, which simplify most of the tasks.**
 
-To be clear, let's say `X` contains Aptos coin type - `0x1::aptos_coin::AptosCoin` and `Y` is some wrapped USDT - `wrapped_coins::usdt::USDT`, and in the LP has some user deployed type, like `user_address::lp::LP`.
+A set of `(X, Y, LP, pool_address)` uniquely identifies a LiquidityPool on the blockchain.
+
+Because of that, all functions that act on pools have three generic parameters and `pool_addr: address` as a parameter, for example:
+
+```move
+public entry fun swap<X, Y, LP>(... pool_addr: address, ...) {} 
+```
+
+* `X, Y` - types of coins to be swapped in the pool,
+  for example, `0x1::aptos_coin::AptosCoin` and `wrapped_coins::usdt::USDT`(wrapped USDT)
+
+* `LP` - type of LP coin for the pool, explained below
+
+* `pool_address` - pool owner address
+
+Note: **Generics must be sorted**, see [Coins Sorting](./#coins-sorting).
+
+Operations with liquidity:
+
+* `register<X, Y, LP>` - creates new liquidity pool on an account. The pool will be stored under the registrar account address.
+* `mint<X, Y, LP>` - mints new LP coins in exchange for `Coin<X>` and `Coin<Y>`.
+* `burn<X, Y, LP>` - burns some LP coins in exchange for `Coin<X>` and `Coin<Y>`.
+* `swap<X, Y, LP>` - swaps `Coin<X>` or `Coin<Y>` or both and get `Coin<X>` or `Coin<Y>` or both in exchange.
+
+Getters:
+
+* `is_pool_locked<X, Y, LP>` - returns bool determines if pool locked (flashloaned).
+* `get_reserves_size<X, Y, LP>` - returns current reserves size for both `Coin<X>` and `Coin<Y>`.
+* `get_curve_type<X, Y, LP>` - returns curve type for the pool.
+* `get_decimals_scales<X, Y, LP>` - returns decimals scales for both `Coin<X>` and `Coin<Y>,` would return correct values only for stable pools.
+* `pool_exists_at<X, Y, LP>` - returns bool determines if pool exists.
+* `get_fees_config<X, Y, LP>` - returns fees config for the pool.
+* `get_cumulative_prices<X, Y, LP>` - return cumulative prices and last block timestamp.
 
 #### Coins Sorting
 
@@ -117,33 +150,6 @@ module my_account::lp {
 ```
 
 And use the provided type to register your pool for the `USDT` and `APTOS` pair.
-
-### Functions
-
-**In most cases, you don't need to use the Liquidity Pool module itself, but you can utilize Router.**
-
-The module implements all required low-level functional.
-
-* All functions usually take three generics and pool creator addresses as arguments.
-* All coins (`X` and `Y` or `LP`) can be passed as just `Coin<CoinType>` as function arguments so that any other module can execute it.
-* **Generics must be sorted**, see [Coins Sorting](./#coins-sorting).
-
-Operations with liquidity:
-
-* `register<X,Y,LP>` - to create new liquidity pool on account. The pool will be stored under the registrar account address.
-* `mint<X, Y, LP>` - to mint new LP coins in exchange for `Coin<X>` and `Coin<Y>`.
-* `burn<X, Y, LP>` - to burn some LP coins in exchange for `Coin<X>` and `Coin<Y>`.
-* `swap<X, Y, LP>` - to swap `Coin<X>` or `Coin<Y>` or both and get `Coin<X>` or `Coin<Y>` or both in exchange.
-
-Getters:
-
-* `is_pool_locked<X, Y, LP>` - returns bool determines if pool locked (flashloaned).
-* `get_reserves_size<X, Y, LP>` - returns current reserves size for both `Coin<X>` and `Coin<Y>`.
-* `get_curve_type<X, Y, LP>` - returns curve type for the pool.
-* `get_decimals_scales<X, Y, LP>` - returns decimals scales for both `Coin<X>` and `Coin<Y>,` would return correct values only for stable pools.
-* `pool_exists_at<X, Y, LP>` - returns bool determines if pool exists.
-* `get_fees_config<X, Y, LP>` - returns fees config for the pool.
-* `get_cumulative_prices<X, Y, LP>` - return cumulative prices and last block timestamp.
 
 ## Router
 

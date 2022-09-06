@@ -6,11 +6,10 @@ The [Liquidswap](https://liquidswap.com) protocol is AMM (Automated Market Maker
 
 Supported features and benefits:
 
-* Uncorrelated swaps supported.
-* Stable swaps for stable cryptocurrency pairs supported.
+* Allows exchanging all types of cryptocurrencies, both uncorrelated (non-stable) and stable coins.
+* DAO treasury is implemented, which receive a part of every swap transaction fee.
 * Unlike Uniswap, Liquidswap allows the creation of many pools with even the same pairs but on different addresses. It's one of the nuances of developing the protocol on Move language and can be a nice feature together with others like dynamic fees in the distant future. Yet, still, we think that pools presented in UI will be the most popular now.
-* DAO treasury supported.
-* It's written in Move language: new and secured by design intelligent contract language.
+* Written in Move language: new smart-contract language designed with security in mind. 
 * Large TPS because of Aptos parallel transaction execution mechanism.
 * Partially covered with formal verification; the complete formal verification coverage is coming in the future.
 
@@ -35,7 +34,7 @@ If you are looking for source code, visit our [Github](https://github.com/pontem
 * [Liquidswap LP & tests coin](https://github.com/pontem-network/liquidswap-lp)
 * [Typescript SDK](https://github.com/pontem-network/liquidswap-sdk)
 
-If you need help with integration, feel free to contact us:
+If you need help integrating your service with Liquidswap, feel free to contact us:
 
 * [Telegram](https://t.me/pontemnetworkchat)
-* [Discrod](https://discord.gg/44QgPFHYqs)
+* [Discord](https://discord.gg/44QgPFHYqs)
