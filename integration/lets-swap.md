@@ -2,9 +2,9 @@
 
 **During experiments with swaps, it's very important to be safe: always use correct slippage values, double-check values, use only trusted pairs, and compare external price sources.**
 
-During this guide, we will use [Router](../smart-contracts/#router) and try to swap Aptos coin to test BTC.
+During the current guide, we will use [Router](../smart-contracts/#router) and try to swap Aptos coins to test BTC.
 
-Let's create a new module and import router inside:
+Let's create a new module and import the router inside:
 
 {% embed url="https://gist.github.com/borispovod/62ba3b63a335267221922db3eaa05891" %}
 Basic module
@@ -40,6 +40,10 @@ It's very simple, but what if someone would front-run us? Let's add some basic s
 Final example with basic slippage
 {% endembed %}
 
-It's done. In the same way, you can try another function `router::swap_coin_for_exact_coin` (see [Router](../smart-contracts/#router) docs).
+It's done. In the same way, you can try another function: `router::swap_coin_for_exact_coin` (see [Router](../smart-contracts/#router) docs).
 
-_What's important: always use the safety checks, never do the swaps without slippage provided offline, use external price feeds or oracles (even_ [_Basic Oracle_](basic-oracle.md) _can be good example)._
+_Important note regarding decentralized AMM securities and users transactions:_
+
+* _Always use the safety checks._
+* _Never do the swaps without slippage provided offline._
+* _Use external price feeds or oracles (even_ [_Basic Oracle_](basic-oracle.md) _can be a good example)._

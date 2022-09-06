@@ -76,7 +76,7 @@ public entry fun swap<X, Y, LP>(... pool_addr: address, ...) {}
 ```
 
 * `X, Y` - types of coins to be swapped in the pool,
-  for example, `0x1::aptos_coin::AptosCoin` and `wrapped_coins::usdt::USDT`(wrapped USDT)
+  for example, `0x1::aptos_coin::AptosCoin` and `liquidswap_lp::coins::USDT`(wrapped USDT)
 
 * `LP` - type of LP coin for the pool, explained below
 
@@ -116,9 +116,9 @@ The current sorting algorithm takes coins symbols, convert them to bytes using `
 
 * You can look at the implementation in Move language in the Coin Helper module - [coin\_helper.move](https://github.com/pontem-network/liquidswap/blob/main/sources/libs/coin\_helper.move#L44).
 * Implementation in Javascript - [Coins Sorting In JS](https://gist.github.com/borispovod/7c81bf5d82dbae1c26b95ff8b6861d4a).
-* Also, it supported in [Typescript SDK](../liquidswap/typescript-sdk.md).
+* Also, it supported in [Typescript SDK](../typescript-sdk.md).
 
-### Curve types.
+### Curve types
 
 During the creation of the pool, the curve type can be provided; it's simple, as an integer used to determine which type of pool must be created:
 
@@ -171,7 +171,7 @@ There can be many routers from different teams, yet Liquidswap standard Router s
 
 The router functions accept `Coin<X>` and `Coin<Y>`, `Coin<LP>` resource from aptos\_framework::coin so that they can be easily integrated with 3rd party module. But it can't be called directly from the transaction; if you need entry points, look at Scripts.
 
-Developers iterating with functions can order generics however they want. Let's say if I want to swap `aptos_framework::aptos_coin::APTOS` to `liqudswap_lp::coins::USDT` i can just use the function:
+Developers iterating with functions can order generics however they want. Let's say if I want to swap `aptos_framework::aptos_coin::AptosCoin` to `liqudswap_lp::coins::USDT` i can just use the function:
 
 ```
 router::swap_exact_coin_for_coin<
@@ -312,7 +312,7 @@ If you are interesting in Oracle implementation look at our [integration](../int
 
 #### Treasury
 
-Source Code: [.sources/swap/dao\_treasury.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/dao\_treasury.move)
+Source Code: [.sources/swap/dao\_storage.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/dao\_storage.move)
 
 DAO Treasury contract brings to each liquidity pool ever created on the protocol and it's collecting 0.1% of all fees on the protocol.
 
