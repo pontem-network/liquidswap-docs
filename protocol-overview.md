@@ -12,7 +12,7 @@ x * y = k
 
 The abovementioned formula ensures that trades do not change the product `k`. That formula is suitable for uncorrelated swaps and works as expected in most cases, including uncorrelated swaps on Liquidswap.
 
-_For other kinds of swaps like the stable one, the formula is not very effective; this is the main reason stable swaps protocols and LiquidSwap, too (indeed for stable swaps), use a different formula to get it more smooth on large values._
+_For other kinds of swaps like the stable one, the formula is not very effective; for those cases, Liquidswap uses a different, more complex formula to smooth things out on large values._
 
 ## User Flow
 
@@ -20,12 +20,12 @@ As already mentioned, there are two types of users: liquidity providers and trad
 
 ### Liquidity providers
 
-The liquidity providers create new pools and provide liquidity to them: coin `X` and coin `Y` (we call them so), which traders can exchange, and in return, liquidity providers get LP coins. If liquidity providers want their assets back - they can burn LP coins and get their coin `X` and coin `Y` back together with earned fees.
+The liquidity providers create new pools and provide liquidity to them: coin `X` and coin `Y`, which traders can exchange, and in return, liquidity providers get LP coins. If liquidity providers want their assets back - they can burn LP coins and get their coin `X` and coin `Y` back together with earned fees.
 
-The LPs can be:
+Those LPs can be:
 
 * Traders who want a passive income by utilizing their coins `X` and `Y`.
-* Projects creators who want to support their coin with initial liquidity.
+* Project creators who want to support their coin with initial liquidity.
 * Defi protocols focused on passive income, experimental strategies, etc.
 
 ### Traders
