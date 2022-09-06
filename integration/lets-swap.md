@@ -46,4 +46,4 @@ _Important note regarding decentralized AMM securities and users transactions:_
 
 * _Always use the safety checks._
 * _Never do the swaps without slippage provided offline._
-* _Use external price feeds or oracles (even Basic Oracle can be a good example)._
+* _Use external price feeds or oracles (even_ [_Basic Oracle_](basic-oracle.md) _can be a good example)._
