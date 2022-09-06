@@ -302,7 +302,7 @@ If you are interesting in Oracle implementation look at our [integration](../int
 
 #### Treasury
 
-Source Code: [.sources/swap/dao\_treasury.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/dao\_treasury.move)
+Source Code: [.sources/swap/dao\_storage.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/dao\_storage.move)
 
 DAO Treasury contract brings to each liquidity pool ever created on the protocol and it's collecting 0.1% of all fees on the protocol.
 
