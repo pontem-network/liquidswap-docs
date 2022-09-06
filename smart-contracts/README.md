@@ -69,7 +69,7 @@ To don't confuse, Liquidswap uses frontend with pre-filled pools and our pools r
 
 The provided generics `X`, `Y`, and `LP` are used to determine which pool we will use, together with the `pool_owner` address. Almost all public functions have described generics and `pool_owner` address argument so it can always be clear which pool is currently used.
 
-To be clear, let's say `X` contains Aptos coin type - `0x1::aptos_coin::AptosCoin` and `Y` is some wrapped USDT - `wrapped_coins::usdt::USDT`, and in the LP has some user deployed type, like `user_address::lp::LP`.
+To be clear, let's say `X` contains Aptos coin type - `0x1::aptos_coin::AptosCoin` and `Y` is some wrapped USDT - `liquidswap_lp::coins::USDT`, and in the LP has some user deployed type, like `{user address}::lp::LP`.
 
 #### Coins Sorting
 
@@ -163,7 +163,7 @@ There can be many routers from different teams, yet Liquidswap standard Router s
 
 The router functions accept `Coin<X>` and `Coin<Y>`, `Coin<LP>` resource from aptos\_framework::coin so that they can be easily integrated with 3rd party module. But it can't be called directly from the transaction; if you need entry points, look at Scripts.
 
-Developers iterating with functions can order generics however they want. Let's say if I want to swap `aptos_framework::aptos_coin::APTOS` to `liqudswap_lp::coins::USDT` i can just use the function:
+Developers iterating with functions can order generics however they want. Let's say if I want to swap `aptos_framework::aptos_coin::AptosCoin` to `liqudswap_lp::coins::USDT` i can just use the function:
 
 ```
 router::swap_exact_coin_for_coin<
