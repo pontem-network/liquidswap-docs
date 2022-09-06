@@ -38,7 +38,7 @@ As you can see above, `add_liquidity`  allows to add liquidity in the just creat
 
 _During real-world examples, we would recommend depositing liquidity immediately in the same transaction you created pool. Also, we recommend using slippage values for the amount of LP coins you get in exchange for your liquidity._
 
-### Adding Liquidity To Existing Pool
+### Adding liquidity to existing pool
 
 Let's say we want to add liquidity to existing `BTC / Aptos` created by Pontem team.
 
