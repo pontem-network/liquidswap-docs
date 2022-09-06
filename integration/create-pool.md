@@ -31,7 +31,7 @@ Create stable liquidity pool
 Let's add liquidity to **our** pool:
 
 {% embed url="https://gist.github.com/borispovod/1fbb2f7c3fd76a50371241ea89700c64" %}
-Adding liquidity
+Add liquidity
 {% endembed %}
 
 As you can see above, `add_liquidity`  allows to add liquidity in the just created pool, and after it deposits the remainders of both `X` and `Y` coins back on account, together with new `LP` coins.&#x20;
