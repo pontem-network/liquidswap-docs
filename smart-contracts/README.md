@@ -81,7 +81,7 @@ The current sorting algorithm takes coins symbols, convert them to bytes using `
 
 * You can look at the implementation in Move language in the Coin Helper module - [coin\_helper.move](https://github.com/pontem-network/liquidswap/blob/main/sources/libs/coin\_helper.move#L44).
 * Implementation in Javascript - [Coins Sorting In JS](https://gist.github.com/borispovod/7c81bf5d82dbae1c26b95ff8b6861d4a).
-* Also, it supported in [Typescript SDK](../liquidswap/typescript-sdk.md).
+* Also, it supported in [Typescript SDK](../typescript-sdk.md).
 
 ### Curve types
 
