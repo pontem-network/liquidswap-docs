@@ -71,23 +71,19 @@ A set of `(X, Y, LP, pool_address)` uniquely identifies a LiquidityPool on the b
 
 Because of that, all functions that act on pools have three generic parameters and `pool_addr: address` as a parameter, for example:
 
-```move
+```
 public entry fun swap<X, Y, LP>(... pool_addr: address, ...) {} 
 ```
 
-* `X, Y` - types of coins to be swapped in the pool,
-  for example, `0x1::aptos_coin::AptosCoin` and `liquidswap_lp::coins::USDT`(wrapped USDT)
-
+* `X, Y` - types of coins to be swapped in the pool, for example, `0x1::aptos_coin::AptosCoin` and `liquidswap_lp::coins::USDT`(wrapped USDT)
 * `LP` - type of LP coin for the pool, explained below
-
 * `pool_address` - pool owner address
 
 Note: **Generics must be sorted**, see [Coins Sorting](./#coins-sorting).
 
 ### Functions
 
-**In most cases, you don't need to use the `LiquidityPool` module itself.
-`Router` module provides high-level wrappers around `LiquidityPool`, which simplify most of the tasks.**
+**In most cases, you don't need to use the `LiquidityPool` module itself. `Router` module provides high-level wrappers around `LiquidityPool`, which simplify most of the tasks.**
 
 Operations with liquidity:
 
@@ -112,7 +108,7 @@ Unlike the [Router](./#router), if you want to work directly with Liquidity Pool
 
 Sorting is important as it brings rules for creating liquidity pools and, how coins must be sorted, what's successfully used in `Router.`
 
-The current sorting algorithm takes coins symbols, convert them to bytes using `BCS,` and compares them byte per byte (starting from the end).
+The current sorting algorithm takes coins symbols, convert them to bytes using `BCS,` and compares them byte per byte (starting by comparing length and then symbol by symbol).
 
 * You can look at the implementation in Move language in the Coin Helper module - [coin\_helper.move](https://github.com/pontem-network/liquidswap/blob/main/sources/libs/coin\_helper.move#L44).
 * Implementation in Javascript - [Coins Sorting In JS](https://gist.github.com/borispovod/7c81bf5d82dbae1c26b95ff8b6861d4a).
