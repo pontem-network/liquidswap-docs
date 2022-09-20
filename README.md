@@ -38,3 +38,6 @@ If you need help integrating your service with Liquidswap, feel free to contact 
 
 * [Telegram](https://t.me/pontemnetworkchat)
 * [Discord](https://discord.gg/44QgPFHYqs)
+
+Others:
+* [Golang SDK from coming-chat](https://github.com/coming-chat/go-aptos-liquidswap)
