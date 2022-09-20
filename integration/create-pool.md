@@ -2,15 +2,15 @@
 
 You must deploy an LP coin module on your account to create a liquidity pool.
 
-We suggest you copy our [LP Template ](https://github.com/pontem-network/liquidswap-lp/blob/main/sources/lp.move)and just deploy it under your account.
+We suggest that you copy our [LP Template ](https://github.com/pontem-network/liquidswap-lp/blob/main/sources/lp.move)and simply deploy it under your account.
 
 {% embed url="https://gist.github.com/borispovod/ccda44afd615cf5aeea17b4ed2458414" %}
 LP Template
 {% endembed %}
 
-_Don't forget to replace `liquidswap_lp` in module declaration with your named address after deployment._
+_Don't forget to replace `liquidswap_lp` in the module declaration with the correct address after deployment._
 
-After that, we can do a call to Router to create a new `APTOS` / `BTC` liquidity pool on your account.
+Now you can call on Router to create a new `APTOS`/`BTC` liquidity pool on your account.
 
 Extend the example from the previous guide and add a new function:
 
@@ -18,7 +18,7 @@ Extend the example from the previous guide and add a new function:
 Create liquidity pool
 {% endembed %}
 
-#### Creation of stable pool
+#### Creating a stable pool
 
 In the same way, you can create a stable pool but use `1` as the `curve_type` argument.
 
@@ -28,24 +28,24 @@ Create stable liquidity pool
 
 ### Add liquidity to your pool
 
-Let's add liquidity to **our** pool:
+Let's add liquidity to **our** new pool:
 
 {% embed url="https://gist.github.com/borispovod/1fbb2f7c3fd76a50371241ea89700c64" %}
 Add liquidity
 {% endembed %}
 
-As you can see above, `add_liquidity`  allows to add liquidity in the just created pool, and after it deposits the remainders of both `X` and `Y` coins back on account, together with new `LP` coins.&#x20;
+As you can see above, `add_liquidity` allows to add liquidity to the newly created pool and then deposit the remainders of both `X` and `Y` tokens/coins back in the account, together with the new `LP` tokens.
 
-_During real-world examples, we would recommend depositing liquidity immediately in the same transaction you created pool. Also, we recommend using slippage values for the amount of LP coins you get in exchange for your liquidity._
+_When working with real-world examples, it's better to deposit liquidity immediately during the same transaction with which you create a pool. We also recommend using slippage values for the amount of the LP tokens you'll get in exchange for your liquidity._
 
-### Adding liquidity to existing pool
+### Adding liquidity to an existing pool
 
-Let's say we want to add liquidity to existing `BTC / Aptos` created by Pontem team.
+Let's say we want to add liquidity to an existing `BTC/Aptos` pool created by the Pontem team.
 
-The only difference is that we use `@liquidswap` address as the pool address and a different LP.
+The only difference is that we'll use the `@liquidswap` address as the pool address and a different LP.
 
 {% embed url="https://gist.github.com/borispovod/c6abe785342fd3a18059d7e155647dd4" %}
 Add liquidity to Pontem APTOS / BTC pool
 {% endembed %}
 
-_During real-world examples, we would recommend depositing liquidity immediately in the same transaction you created pool. Also, we recommend using slippage values for the amount of LP coins you get in exchange for your liquidity._
+_When working with real-world examples, it's better to deposit liquidity immediately during the same transaction with which you create a pool. We also recommend using slippage values for the amount of the LP tokens you'll get in exchange for your liquidity._
