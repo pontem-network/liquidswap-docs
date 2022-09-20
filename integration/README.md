@@ -1,10 +1,10 @@
 # Integration
 
-* The smart contracts' source code can be found in the [Liquidswap](https://github.com/pontem-network/liquidswap) repository.
-* The current version of Liquidswap is deployed on the address `0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9.`
-* The latest release tag can be found on the[ Releases](https://github.com/pontem-network/liquidswap/releases) page.
+* Smart contracts source code can be found in [Liquidswap](https://github.com/pontem-network/liquidswap) repository.
+* The current version of Liquidswap deployed on address `0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9.`
+* The latest release tag can be found on [the Releases](https://github.com/pontem-network/liquidswap/releases) page.
 
-Before we start, create a new Move project so that you can repeat the steps as described here.
+Before we start, create a new Move project so you can repeat the same steps.
 
 ### Add as dependency
 
@@ -18,7 +18,7 @@ rev = 'latest version'
 ```
 {% endcode %}
 
-Also, let's add the test coins used in Liquidswap (the [liquidswap-lp](https://github.com/pontem-network/liquidswap-lp) repository):
+Also, let's add test coins we use in liquidswap (it's [liquidswap-lp](https://github.com/pontem-network/liquidswap-lp) repository):
 
 {% code lineNumbers="true" %}
 ```toml
@@ -28,9 +28,9 @@ rev = 'latest version'
 ```
 {% endcode %}
 
-Replace `'latest version'` with the actual ones from the repositories.
+Replace `'latest version'` with actual ones from repositories.
 
-The following test coins are already deployed on the devnet and can be used in your project:
+Test coins deployed already deployed on testnet and can be used in your project:
 
 ```
 // Test BTC
@@ -40,7 +40,7 @@ The following test coins are already deployed on the devnet and can be used in y
 0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::coins::USDT
 ```
 
-Next, try to compile; you shouldn't get any errors.
+Now we can continue with the rest of things. Try to compile. You mustn't see any errors.
 
-_Liquidswap's contracts always point to the latest `AptosFramework` devnet revision. If you encounter issues after adding our dependencies, remove `dependencies.AptosFramework` completely from your project._
+_The Liquidswap contracts always point to the latest `AptosFramework` devnet revision, so if you have troubles after adding our dependencies, remove `dependencies.AptosFramework` at all from your project._
 
