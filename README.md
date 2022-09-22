@@ -28,7 +28,7 @@ We've done 2 security audits and another one in progress currently.
 
 {% file src=".gitbook/assets/pontem-liquidswap-ottersec-audit (1).pdf" %}
 
-[Halborn](https://halborn.com/)
+[Halborn.com](https://halborn.com/)
 
 {% file src=".gitbook/assets/pontem-liquidswap-halborn-audit.pdf" %}
 

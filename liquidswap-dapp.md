@@ -12,6 +12,8 @@ It supports most of Liquidswap's core features:
 * Swaps
 * Basic stats
 
+**The next sections are not actual for v0.3.0, and we are currently rewriting them.**&#x20;
+
 #### Coin Registry
 
 The coin registry currently used by Liquidswap is the [Pontem Coin Registry](https://github.com/pontem-network/coins-registry).
@@ -31,7 +33,6 @@ To connect the Liquidswap interface to a Custom Pool or a custom coin registry:
 
 **How to add a pool you've just created**
 
-1. `Pool Creator Address`: your address.
-2. `Token 1`: the path to token `X` in your pool, e.g.: `0x1::aptos_coin::APTOS`
-3. `Token 2`: the path to token `Y` in your pool, e.g.: `0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::coins::USDT`
-4. `LP Token`: the path to the LP token - usually it's `address::lp::LP<path to coin X, path to coin Y>`.
+1. `Token 1`: the path to token `X` in your pool, e.g.: `0x1::aptos_coin::APTOS`
+2. `Token 2`: the path to token `Y` in your pool, e.g.: `0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::coins::USDT`
+3. `LP Token`: the path to the LP token - usually it's `address::lp::LP<path to coin X, path to coin Y>`.
