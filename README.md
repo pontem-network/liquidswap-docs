@@ -40,4 +40,4 @@ If you need help integrating your service with Liquidswap, feel free to contact 
 * [Discord](https://discord.gg/44QgPFHYqs)
 
 Others:
-* [Golang SDK from coming-chat](https://github.com/coming-chat/go-aptos-liquidswap)
+* [Golang SDK from OmniBTC](https://github.com/OmniBTC/go-aptos-liquidswap)
