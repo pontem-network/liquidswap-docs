@@ -1,48 +1,52 @@
 # Protocol Overview
 
-The design of decentralized AMM was initially introduced by Vitalik Buterin in 2016-2017 years and later implemented by Uniswap and Bancor teams for their products. Unlike conservative ways to trade assets like order books, the AMM allows anyone to create a pool containing liquidity of X and Y coins relative to each other (with the same value).
+The design of a decentralized AMM was first proposed by Vitalik Buterin in 2016-2017 and later implemented by Uniswap and Bancor. Unlike centralized crypto exchanges with their order books, AMMs allows users to create liquidity pools with tokens of X and Y, where the initial ratio of the two tokens determines their starting relative price and the so-called liquidity curve (the change in price that results from each swap transaction).
 
-Using that liquidity pool, the users can swap their coins by providing one side asset in exchange for another. In contrast, liquidity providers should provide both X and Y coins to get LP coins in exchange (that coins allow them to earn fees and get back their liquidity later).
+Users can swap tokens by providing one side asset in exchange for another and paying a small fee. By contrast, liquidity providers provide both X and Y tokens and earn a share of the transaction fees. When depositing tokens X and Y in a pool, a liquidity provider receives special LP tokens in exchange, which represent their share in the pool and are needed to withdraw the deposited liquidity.
 
-To make it possible, AMM usually utilizes **"Constant Function"** that allows the protocol to ensure that the liquidity pool is not draining during any liquidity event. Furthermore, as both coins in a pool are valued relative to each other, we can utilize a simple function introduced by Uniswap v2:
+Most AMMs utilize a so-called **Constant Function** - a formula for calculating two tokens' relative prices that ensures that a pool will not be drained as a result of any liquidity event. The standard liquidity curve function, introduced by Uniswap v2, looks as follows:
 
 ```
 x * y = k
 ```
 
-The abovementioned formula ensures that trades do not change the product `k`. That formula is suitable for uncorrelated swaps and works as expected in most cases, including uncorrelated swaps on Liquidswap.
+In the formula, X and Y are the amounts of the two tokens in a pool, and their product k is a constant. Any trade (swap) changes the amounts X and Y, but k remains the same. This formula is suitable for uncorrelated swaps (assets whose prices aren't correlated with each other) and works well in most cases, including on Liquidswap.
 
-_For other kinds of swaps like the stable one, the formula is not very effective; for those cases, Liquidswap uses a different, more complex formula to smooth things out on large values._
+_For swaps between stablecoins and other correlated assets, however, the simple constant product formula is not very effective. In such cases, Liquidswap uses a different, more complex formula to minimize slippage even for large transactions._
 
 ## User Flow
 
-As already mentioned, there are two types of users: liquidity providers and traders.
+Like most DEXes, Liquidswap features two types of users: liquidity providers and traders.
 
 ### Liquidity providers
 
-The liquidity providers create new pools and provide liquidity to them: coin `X` and coin `Y`, which traders can exchange, and in return, liquidity providers get LP coins. If liquidity providers want their assets back - they can burn LP coins and get their coin `X` and coin `Y` back together with earned fees.
+Liquidity providers create new pools and provide liquidity for them (tokens X and Y) so that traders can execute swaps. In return, liquidity providers receive LP tokens. To redeem the liquidity together with the earned fees, they need to burn LP tokens.
 
-Those LPs can be:
+Types of liquidity providers:
 
-* Traders who want a passive income by utilizing their coins `X` and `Y`.
-* Project creators who want to support their coin with initial liquidity.
-* Defi protocols focused on passive income, experimental strategies, etc.
+* Traders who want to earn a passive income;
+* Project teams that wish to support their token's price and trading volume by providing initial liquidity;
+* DeFi protocols focused on passive income, experimental strategies, etc.
 
 ### Traders
 
-Traders execute the pool contract, which contains a swap function call and exchange provided coin `X` or coin `Y` or both using liquidity in a pool. Traders pay fees to liquidity providers for exchange.
+Traders interact with a pool's smart contract to swap tokens X for Y or vice versa using the liquidity in the pool. For each swap, a trader pays a fee to the liquidity providers.
 
-_All liquidity operations can be done using_ [_Liquidswap Dapp_](https://liquidswap.com) _or direct calls to deployed smart contracts._
+_Any AMM (DEX) transaction can be executed using the_ [_Liquidswap Dapp_](https://liquidswap.com) _or direct calls to the deployed smart contracts._
 
 ## Fees & Treasury
 
-Currently, Liquidswap extract `0.3%` fees from any value trader who want to exchange (it affects only swap operations).
+Liquidswap currently charges a `0.3%` fee on every swap transaction.
 
-The `0.2%` of that amount goes to liquidity providers, the rest `0.1%` going to treasury contracts created for each liquidity pool on the protocol.
+Out of this, `0.2%` goes to the liquidity providers, while the remaining`0.1%` is sent to the treasury contract created for each liquidity pool on the DEX.
 
-To get their fees, liquidity providers can burn their LP coins and earn both liquidity and fees in exchange.
+To redeem their accumulated fee rewards, liquidity providers can burn their LP tokens (and redeem the deposited liquidity in the process).
 
-The treasury itself is currently planned to be managed by the multisignature of Pontem and trusted 3rd parties (like Pontem investors, solid community members, etc.) and later can be migrated to a full-fledged treasury contract managed by Pontem DAO.
+The treasury itself will be initially managed by a multisignature of Pontem and trusted 3rd parties (e.g. Pontem investors, prominent community members, etc.) and will later be migrated to a full-fledged treasury contract managed by the Pontem DAO.
+
+#### Dynamic Fees
+
+The dynamic fees (currently in R\&D) implementation at the first stage would allow different fees for uncorrelated and stable pairs. At the same time, the Pontem multisignature and DAO would be allow to change fees for specific pairs if it makes sense. However, in the end, it would automatically just choose the fee for pairs.
 
 ## Stable swaps
 
@@ -52,23 +56,23 @@ Without going into too much technical detail, we can say that a single large swa
 
 The same goes for pairs like BTC/WBTC and ETH/WETH. They are also called correlated assets, as their relative prices are (or should be) almost ideally correlated.
 
-The solution is to use a different formula for swaps between correlated assets – one that can keep slippage minimal even for large transactions. So far, one of the most successful formulas was proposed by Solidly, a stablecoin DEX on Fantom built by Andre Cronje. It looks like this:
+The solution is to use a different formula for swaps between correlated assets – one that can keep slippage minimal even for large transactions. So far, one of the most successful formulas was proposed by Solidly, a stablecoin DEX on Fantom built by Andre Cronje. It looks as follows:
 
-&#x20;`x^3*y + x*y^3 = k`.
+`x^3*y + x*y^3 = k`.
 
 ![Stable Curve vs Uncorrelated One](assets/stable-vs-uncorrelated-curve.png)
 
-By default supports two curves and, in that way, allows for the creation of two types of pools: uncorrelated pairs and stables.
+By default, Liquidswap supports both curves and allows for the creation of two types of pools: uncorrelated pairs and stables.
 
-## Emergency stop
+## Emergency brake
 
-As Aptos, Move language and Move VM is very new, and they need time to be verified, checked, and 100% secure. We leave us a way to stop all liquidity minting and swap operations and, simultaneously, allow liquidity providers to burn LP coins.
+As the Aptos blockchain, the Move language, and Move VM are all very new technologies, it will take time for them to be fully verified and tested. For this reason, we have implemented an emergency brake to stop all liquidity minting and swaps, while simultaneously allowing liquidity providers to burn their LP tokens.
 
-We hope it will never happen, as we have also done several security audits. Yet, we still want to have that "emergency button," as there can be protocol-level issues, there can be virtual machine-level issues, etc.
+We hope that we will never have to activate the emergency brake, as we have also performed several security audits. Yet, we still want to keep the 'emergency button' in case of an unlikely event of a protocol-level or virtual machine-level issue.
 
-That function currently would be managed by the Pontem team and later can be replaced by multisignature.
+The emergency feature is currently managed by the Pontem team and can later be transferred to a multisignature.
 
-Once we see the protocol is stable enough and secure, we have an option to disable emergency functions forever.
+Once we have verified that the protocol is stable and secure enough, we may disable the emergency brake indefinitely.
 
 ## Security audits
 
@@ -78,6 +82,6 @@ The reports will be published once it's available.
 
 ## Formal verification
 
-Formal verification is an exciting feature of Move language, yet at the same time, it's still a little raw and not very adopted for many cases.
+Formal verification is a powerful and promising feature of the Move language, but it is still little tested and not perfectly adapted for some use cases.
 
-So, covering Liquidswap is a challenge, and it's in progress right now, we are making efforts from time to time, but we hope in the end, it will be covered with formal verification as much as possible.
+A formal verification of Liquidswap presents a number of challenges. The team is working on it, but for the time being there is no fixed deadline for its completion.

@@ -9,7 +9,7 @@ Supported features and benefits:
 * Uncorrelated token swaps (similar to Uniswap V2);
 * Stable swaps for correlated assets, using a different liquidity curve;
 * A DAO treasury that receives a part of every swap transaction fee;
-* Multiple pools for the same currency pair. Unlike Uniswap, Liquidswap supports the creation of many pools with the same tokens but with different addresses. This is made possible by developing the protocol using the Move language, together with other nice touches like dynamic fees (in R\&D stage). However, the basic set of pools already present in Liquidswap's UI should be enough for most users for now;
+* Dynamic fees (in R\&D stage).
 * Written in Move: a new smart contract language designed with security in mind;
 * High speed thanks to Aptos' parallel transaction execution engine;
 * Formal verification partially complete: full formal verification is coming in the future.

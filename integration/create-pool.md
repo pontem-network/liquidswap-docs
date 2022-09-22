@@ -1,51 +1,49 @@
 # Create Pool
 
-You must deploy an LP coin module on your account to create a liquidity pool.
+Now let's create a new pool utilizing Router. First of all, deploy your new own coin just for test:
 
-We suggest you copy our [LP Template ](https://github.com/pontem-network/liquidswap-lp/blob/main/sources/lp.move)and just deploy it under your account.
-
-{% embed url="https://gist.github.com/borispovod/ccda44afd615cf5aeea17b4ed2458414" %}
-LP Template
+{% embed url="https://gist.github.com/borispovod/a57e4de806dea23195412eb08f731f70" %}
+Test coin for new pool
 {% endembed %}
-
-_Don't forget to replace `liquidswap_lp` in module declaration with your named address after deployment._
-
-After that, we can do a call to Router to create a new `APTOS` / `BTC` liquidity pool on your account.
 
 Extend the example from the previous guide and add a new function:
 
 {% embed url="https://gist.github.com/borispovod/5caea21cc3777372ce18cbb03cd6cac0" %}
-Create liquidity pool
+Create a new pool
 {% endembed %}
 
-#### Creation of stable pool
+The function above creates a new pool for your coin: `MyCoin/AptosCoin`. As Uncorrelated generic provided, the formula for the pool would be standard one: `x*y=k`.
 
-In the same way, you can create a stable pool but use `1` as the `curve_type` argument.
+It's very important to follow the rule about generic sorting as otherwise, the function would abort.
 
-{% embed url="https://gist.github.com/borispovod/a842a47f10a093d2591326b6ea85550c" %}
-Create stable liquidity pool
+#### Creating a stable pool
+
+In the same way, you can create a stable pool by use `Stable` generic:
+
+{% embed url="https://gist.github.com/borispovod/1fbb2f7c3fd76a50371241ea89700c64" %}
+Create stable pool
 {% endembed %}
 
 ### Add liquidity to your pool
 
-Let's add liquidity to **our** pool:
-
-{% embed url="https://gist.github.com/borispovod/1fbb2f7c3fd76a50371241ea89700c64" %}
-Add liquidity
-{% endembed %}
-
-As you can see above, `add_liquidity`  allows to add liquidity in the just created pool, and after it deposits the remainders of both `X` and `Y` coins back on account, together with new `LP` coins.&#x20;
-
-_During real-world examples, we would recommend depositing liquidity immediately in the same transaction you created pool. Also, we recommend using slippage values for the amount of LP coins you get in exchange for your liquidity._
-
-### Adding liquidity to existing pool
-
-Let's say we want to add liquidity to existing `BTC / Aptos` created by Pontem team.
-
-The only difference is that we use `@liquidswap` address as the pool address and a different LP.
+Let's add liquidity to new pool:
 
 {% embed url="https://gist.github.com/borispovod/c6abe785342fd3a18059d7e155647dd4" %}
-Add liquidity to Pontem APTOS / BTC pool
+Adding liquidity to our new pool
 {% endembed %}
 
-_During real-world examples, we would recommend depositing liquidity immediately in the same transaction you created pool. Also, we recommend using slippage values for the amount of LP coins you get in exchange for your liquidity._
+As you can see above, `add_liquidity` allows to add liquidity to the newly created pool and then deposit the remainders of both `X` and `Y` coins back in the account, together with the new `LP` coins.
+
+Similarly, you can add liquidity to any other pool: replace `MyCoin` and `AptosCoin` with other coins.
+
+_When working with real-world examples, it's better to deposit liquidity immediately during the same transaction with which you create a pool. We also recommend using slippage values for the amount of the LP tokens you'll get in exchange for your liquidity._
+
+### Adding liquidity to an existing pool
+
+Let's say we want to add liquidity to an existing `BTC/Aptos` pool created by the Pontem team:
+
+{% embed url="https://gist.github.com/borispovod/cc613eb511c4025641f18c7060fa9a60" %}
+Adding liquidity to an existing pool
+{% endembed %}
+
+_When working with real-world examples, it's better to deposit liquidity immediately during the same transaction with which you create a pool. We also recommend using slippage values for the amount of the LP tokens you'll get in exchange for your liquidity._
