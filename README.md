@@ -14,11 +14,23 @@ Supported features and benefits:
 * High speed thanks to Aptos' parallel transaction execution engine;
 * Formal verification partially complete: full formal verification is coming in the future.
 
-## Devnet version
+## Testnet version
 
 The current version of Liquidswap is deployed on the Aptos devnet and located at [https://liquidswap.com](https://liquidswap.com).
 
 Please test Liquidswap for yourself and share your feedback - it will be greatly appreciated 😊
+
+## Security audits
+
+We've done 2 security audits and another one in progress currently.
+
+[OtterSec.io](https://osec.io/)
+
+{% file src=".gitbook/assets/pontem-liquidswap-ottersec-audit (1).pdf" %}
+
+[Halborn](https://halborn.com/)
+
+{% file src=".gitbook/assets/pontem-liquidswap-halborn-audit.pdf" %}
 
 ## Developer Links
 

@@ -74,12 +74,6 @@ The emergency feature is currently managed by the Pontem team and can later be t
 
 Once we have verified that the protocol is stable and secure enough, we may disable the emergency brake indefinitely.
 
-## Security audits
-
-The current security aduits in progress by [OtterSec](https://osec.io/) and [Halborn](https://halborn.com/) teams.
-
-The reports will be published once it's available.
-
 ## Formal verification
 
 Formal verification is a powerful and promising feature of the Move language, but it is still little tested and not perfectly adapted for some use cases.
