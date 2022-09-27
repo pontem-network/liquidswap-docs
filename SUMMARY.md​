@@ -9,6 +9,7 @@
   * [Scripts](https://app.gitbook.com/s/7hOyaMi2Pz1hDJkk7WIF/smart-contracts#scripts)
   * [Advanced Topics](https://app.gitbook.com/s/7hOyaMi2Pz1hDJkk7WIF/smart-contracts#advanced-topics)
 * [Integration](integration/README.md)
+  * [Test Coins](integration/test-coins.md)
   * [Let's Swap](integration/lets-swap.md)
   * [Create Pool](integration/create-pool.md)
   * [Add Liquidity](https://app.gitbook.com/s/7hOyaMi2Pz1hDJkk7WIF/integration/create-pool#add-liquidity-to-your-pool)
