@@ -1,7 +1,11 @@
 # Integration
 
 * The smart contracts' source code can be found in the [Liquidswap](https://github.com/pontem-network/liquidswap) repository.
-* The current version of Liquidswap is deployed on the address `0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9.`
+*   The current version of Liquidswap is deployed on the address&#x20;
+
+    ```
+    0x4e9fce03284c0ce0b86c88dd5a46f050cad2f4f33c4cdd29d98f501868558c81
+    ```
 * The latest release tag can be found on the[ Releases](https://github.com/pontem-network/liquidswap/releases) page.
 
 Before we start, create a new Move project so that you can repeat the steps as described here.
@@ -28,7 +32,7 @@ Add the LP coin module as a dependency too:
 [dependencies.LiquidswapLP]
 git = 'https://github.com/pontem-network/liquidswap.git'
 subdir = 'liquidswap_lp/'
-rev = 'release-v0.3'
+rev = 'latest version'
 ```
 
 **Replace `'latest version'` with the actual ones from the repositories.**

@@ -9,7 +9,7 @@ Supported features and benefits:
 * Uncorrelated token swaps (similar to Uniswap V2);
 * Stable swaps for correlated assets, using a different liquidity curve;
 * A DAO treasury that receives a part of every swap transaction fee;
-* Dynamic fees (in R\&D stage).
+* Dynamic fees: managed by treasury multisig and dao in the future.
 * Written in Move: a new smart contract language designed with security in mind;
 * High speed thanks to Aptos' parallel transaction execution engine;
 * Formal verification partially complete: full formal verification is coming in the future.
@@ -32,6 +32,10 @@ We've done 2 security audits and another one in progress currently.
 
 {% file src=".gitbook/assets/pontem-liquidswap-halborn-audit.pdf" %}
 
+**Flashloan (Halborn)**
+
+{% file src=".gitbook/assets/pontem-liquidswap-flashloan-halborn-audit.pdf" %}
+
 ## Developer Links
 
 For a general idea about Liquidswap, start with the [Protocol Overview](protocol-overview.md).
@@ -44,7 +48,7 @@ To get hands-on with the DEX, check out the tutorials:
 Looking for source code? Visit our [Github](https://github.com/pontem-network):
 
 * [Liquidswap Smart Contracts](https://github.com/pontem-network/liquidswap)
-* [Liquidswap LP & tests coin](https://github.com/pontem-network/liquidswap-lp)
+* [Test coins](https://github.com/pontem-network/test-coins)&#x20;
 * [Typescript SDK](https://github.com/pontem-network/liquidswap-sdk)
 
 Need help integrating your service with Liquidswap? Feel free to contact us:

@@ -36,17 +36,32 @@ _Any AMM (DEX) transaction can be executed using the_ [_Liquidswap Dapp_](https:
 
 ## Fees & Treasury
 
-Liquidswap currently charges a `0.3%` fee on every swap transaction.
+Liquidswap fees are configurable by treasury multisig and later by DAO.&#x20;
 
-Out of this, `0.2%` goes to the liquidity providers, while the remaining`0.1%` is sent to the treasury contract created for each liquidity pool on the DEX.
+In the current version, all uncorrelated pools are created with default 0.3% fees, and stable pools create with default 0.04% fees.
+
+Out of this, 73% goes to the liquidity providers, while the remaining0.33% is sent to the treasury contract created for each liquidity pool on the DEX by default. Still, DAO fees are also configurable and can differ pool to pool.
+
+The treasury multisignature can change the fee percent for individual pools.&#x20;
 
 To redeem their accumulated fee rewards, liquidity providers can burn their LP tokens (and redeem the deposited liquidity in the process).
 
 The treasury itself will be initially managed by a multisignature of Pontem and trusted 3rd parties (e.g. Pontem investors, prominent community members, etc.) and will later be migrated to a full-fledged treasury contract managed by the Pontem DAO.
 
-#### Dynamic Fees
+#### Configuration
 
-The dynamic fees (currently in R\&D) implementation at the first stage would allow different fees for uncorrelated and stable pairs. At the same time, the Pontem multisignature and DAO would be allow to change fees for specific pairs if it makes sense. However, in the end, it would automatically just choose the fee for pairs.
+Current configuration:
+
+* Default fee for uncorrelated pools - 0.3%
+* Default fee for stable pools - 0.04%
+* Default DAO fee - 33% from general fee.
+
+The treasury or DAO always can change default fees and fees per pool if it follows the next rules:
+
+* Minimum fee for both curves - 0.01%.
+* Maximum fee for both curves - 1%.
+* Minimum DAO fee - 0%.
+* Maximum DAO fee - 100%.
 
 ## Stable swaps
 

@@ -12,19 +12,25 @@ The current `main` branch is the development branch and always contains the late
 
 Release branches contain the latest changes created for the specific release.
 
-The current `release-v0.3` and release tags `v0.3*` are designed for the mainnet release.
-
-Not all features from the `main` branch will necessarily be present in the upcoming releases - for example, flash loans will probably become available only in the future major releases.
+The current release tags `v0.4*` are designed for the mainnet release.
 
 You can always find the latest release in the [Releases](https://github.com/pontem-network/liquidswap/releases) section.
 
 ### Addresses
 
-All liquidity pools resources and LP coins currently placed on the following resource account:
+All liquidity pools resources and LP coins currently placed at the following resource account:
 
 ```
-0x385068db10693e06512ed54b1e6e8f1fb9945bb7a78c28a45585939ce953f99e
+0x8aa500cd155a6087509fa84bc7f0deed3363dd253ecb62b2f110885dacf01c67
 ```
+
+Liquidswap modules are deployed at the following address:
+
+```
+0x4e9fce03284c0ce0b86c88dd5a46f050cad2f4f33c4cdd29d98f501868558c81
+```
+
+**All smart contracts and dependencies (exclude that placed on `0x1` address) are immutable.**
 
 ## Integrations
 
@@ -53,6 +59,9 @@ struct LiquidityPool<phantom X, phantom Y, phantom Curve> has key {
     // Scales are pow(10, token_decimals).
     x_scale: u64,
     y_scale: u64,
+    locked: bool,
+    fee: u64,           // 1 - 100 (0.01% - 1%)
+    dao_fee: u64,       // 0 - 100 (0% - 100%)
 }
 ```
 {% endcode %}
@@ -62,14 +71,14 @@ struct LiquidityPool<phantom X, phantom Y, phantom Curve> has key {
 * Cumulative price information.
 * Mint and burn capabilities for `LP` coins.
 * Token decimal scales (used for stable swaps).
-* If a pool is locked (needed for the flash loan feature).
+* If a pool is locked (needed for the flashloans).
 
 New liquidity pools are created on the registrar account, and the corresponding resource is placed in that account's storage.
 
 Almost like Uniswap the Liquidswap creates pools on the reserved address:
 
 ```
-0x385068db10693e06512ed54b1e6e8f1fb9945bb7a78c28a45585939ce953f99e
+0x8aa500cd155a6087509fa84bc7f0deed3363dd253ecb62b2f110885dacf01c67
 ```
 
 All pools are unique, so there can't be two pools containing the same coins, and it also works for LP and LP generics.
@@ -100,6 +109,8 @@ Operations with liquidity:
 * `mint<X, Y, Curve>` - mints new LP coins in exchange for `Coin<X>` and `Coin<Y>`.
 * `burn<X, Y, Curve>` - burns some LP coins in exchange for `Coin<X>` and `Coin<Y>`.
 * `swap<X, Y, Curve>` - swaps `Coin<X>` or `Coin<Y>` or both to get `Coin<X>` or `Coin<Y>` or both in exchange.
+* `flashloan<X, Y, Curve>` - flashloan reserves `Coin<X>` and/or `Coin<Y>` from the pool, also returns `Flashloan` object.&#x20;
+* `pay_flashloan<X, Y, Curve>` - pay flashloan by returning `Coin<X>`, `Coin<Y>` and `Flashloan` object.
 
 Getters:
 
@@ -108,8 +119,11 @@ Getters:
 * `get_curve_type<X, Y, Curve>` - returns the curve type for the pool.
 * `get_decimals_scales<X, Y, Curve>` - returns the decimal scales for both `Coin<X>` and `Coin<Y> - but` correct values are returned only for stable pools.
 * `pool_exists_at<X, Y, Curve>` - returns bool determining if the pool exists.
-* `get_fees_config<X, Y, Curve>` - returns fees config for the pool.
 * `get_cumulative_prices<X, Y, Curve>` - return cumulative prices and the last block's timestamp.
+* `get_fees_config<X, Y, Curve>` - returns fees config for the pool (both nominator fee and denominator).
+* `get_fee<X, Y, Curve>` - return the fee nominator for pool.
+* `get_dao_fees_config<X, Y, Curve>` - returns dao fees config for the pool (both nominator fee and denominator).
+* `get_dao_fee<X, Y, Curve>` - return the dao fee nominator for pool.&#x20;
 
 #### Coin Sorting
 
@@ -149,6 +163,13 @@ struct Stable {}
 
 The following types can be imported into code and should be used as the last generic argument in almost all modules functions.
 
+Functions:
+
+* `is_uncorrelated<Curve>` - returns `true` if provided type is `Uncorrelated`.
+* `is_stable<Curve>` - returns true if provided type is `Stable`.
+* `is_valid_curve<Curve>` - returns true if provided type is `Stable` or `Uncorrelated`.
+* `assert_valid_curve<Curve>` - abort if provided type is not a curve type.
+
 You can read more about Liquidswap's curve formulas on the [Protocol Overview](../protocol-overview.md) page.
 
 ### LP coins
@@ -175,6 +196,14 @@ For `APT/BTC` uncorrelated pool, the LP coin would look so:
     0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::curves::Uncorrelated,
 >
 ```
+
+### Flashloans
+
+The implementation is based on Move's loan concept, where a Move object containing the loan data is issued but cannot be stored, copied, cloned or dropped, the only available action being to return the object back to the `pay_flashloan` function, which will verify the resulting constant product function.
+
+The concept was explained early on by the Pontem team in this [Medium article](https://medium.com/p/bbc48a48d93c).
+
+Read more in the [integration section](../integration/flashloans.md).
 
 ## Router
 
@@ -239,6 +268,10 @@ Liquidity operations:
 * `get_decimals_scales<X, Y, Curve>` - returns the pool's decimals scale. The resulting values will be correct only for stable pools.
 * `get_cumulative_prices<X, Y, Curve>` - returns cumulative prices and the last block's timestamp.
 * `get_reserves_for_lp_coins<X, Y, Curve>` - returns the amounts in `Coin<X>` and `Coin<Y>` that a user will receive after burning LP coins.
+* `get_fees_config<X, Y, Curve>` - returns fees config for the pool (both nominator fee and denominator).
+* `get_fee<X, Y, Curve>` - return the fee nominator for pool.
+* `get_dao_fees_config<X, Y, Curve>` - returns dao fees config for the pool (both nominator fee and denominator).
+* `get_dao_fee<X, Y, Curve>` - return the dao fee nominator for pool.
 
 ## Scripts
 
@@ -259,8 +292,6 @@ This is the optimal way to interact with Liquidswap if you want to call a swap f
 ### Functions
 
 All the functions have 'slippage' amount arguments, like `coin_x_val_min`, `coin_y_val_min` or `min_x_out_val`, etc.
-
-
 
 * **Requires sorted generics:**
   * `register_pool<X, Y, Curve>` - register a pool with the specified curve type.
@@ -315,14 +346,6 @@ The smart contracts utilize the following math libraries created by the Pontem t
 
 ### Advanced topics
 
-#### Flashloans
-
-Flashloans have been implemented in the `main` branch as a concept, but there is no set timeline for actually implementing them in the AMM protocol.
-
-The implementation is based on Move's loan concept, where a Move object containing the loan data is issued but cannot be stored, copied, cloned or dropped, the only available action being to return the object back to the `pay_flashloan` function, which will verify the resulting constant product function.
-
-The concept was explained early on by the Pontem team in this [Medium article](https://medium.com/p/bbc48a48d93c).
-
 #### VE(3,3)
 
 The `ve(3,3)` logic is currently under active development and can undergo significant changes; stay tuned.
@@ -347,13 +370,19 @@ If you are interested in the Oracle implementation, refer to our [integration](.
 
 Source Code: [.sources/swap/dao\_storage.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/dao\_storage.move)
 
-The DAO Treasury receives a 0.1% fee from each swap transaction in every liquidity pool on the protocol. A reminder: Liquidswap's total fee is 0.3%, out of which 0.2% go to the liquidity providers and 0.1% to the treasury.
+The DAO Treasury receives a fee from each swap transaction in every liquidity pool on the protocol.
 
-The treasury is currently managed by an admin multisig and will be eventually transfered to a full-fledged Pontem DAO.
+The treasury is currently managed by Treasury multisig and will be eventually transfered to a full-fledged Pontem DAO.
 
-#### Dynamic fees
+#### Config & Dynamic Fees
 
-With dynamic fees currently controlled by admin multisig and later by Pontem DAO, the number of fees can be changed but not greater than the maximum.
+Source code: [./sources/swap/global\_config.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/global\_config.move)
+
+Most of the functions mostly needed to migrate Treasury accounts from one to another and change default fees.&#x20;
+
+The [liquidity pool](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/liquidity\_pool.move) module contains functions to change individual pools fees.
+
+Read more fees concept: [Fees & Treasury](../protocol-overview.md#fees-and-treasury).
 
 #### Emergency
 
