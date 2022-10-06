@@ -16,6 +16,7 @@
   * [Burn Liquidity](integration/burn-liquidity.md)
   * [Basic Oracle](integration/basic-oracle.md)
   * [Flashloans](integration/flashloans.md)
+  * [Unit Testing](integration/unit-testing.md)
 * [Typescript SDK](typescript-sdk.md)
 * [Liquidswap DApp](liquidswap-dapp.md)
 * [Coin Registry](https://app.gitbook.com/s/7hOyaMi2Pz1hDJkk7WIF/liquidswap-dapp#coin-registry)
