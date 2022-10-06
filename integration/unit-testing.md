@@ -1,6 +1,6 @@
 # Unit Testing
 
-This part explains how to write your unit tests during integration with Liquidswap Smart Contracts.
+This part explains how to write unit tests during integration with Liquidswap Smart Contracts.
 
 ### Testing integration
 
