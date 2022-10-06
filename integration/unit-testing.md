@@ -4,7 +4,7 @@ This part explains how to write unit tests during integration with Liquidswap Sm
 
 ### Testing integration
 
-To be able to run tests, you need to prepare the Liquidswap state in your test. There's a couple of utilities available to help you with that in - [source code](https://github.com/pontem-network/liquidswap/tree/main/sources/test\_helpers/test\_pool.move).
+To be able to run tests, you need to prepare the Liquidswap state in your test. There's a couple of utilities available to help you with that in [source code](https://github.com/pontem-network/liquidswap/tree/main/sources/test\_helpers/test\_pool.move).
 
 * `public fun initialize_liquidity_pool()`
 
