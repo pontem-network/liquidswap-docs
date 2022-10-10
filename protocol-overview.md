@@ -40,7 +40,7 @@ Liquidswap fees are configurable by treasury multisig and later by DAO.&#x20;
 
 In the current version, all uncorrelated pools are created with default 0.3% fees, and stable pools create with default 0.04% fees.
 
-Out of this, 73% goes to the liquidity providers, while the remaining0.33% is sent to the treasury contract created for each liquidity pool on the DEX by default. Still, DAO fees are also configurable and can differ pool to pool.
+Out of this, 73% goes to the liquidity providers, while the remaining 0.33% is sent to the treasury contract created for each liquidity pool on the DEX by default. Still, DAO fees are also configurable and can differ pool to pool.
 
 The treasury multisignature can change the fee percent for individual pools.&#x20;
 
