@@ -24,17 +24,33 @@ Please test Liquidswap for yourself and share your feedback - it will be greatly
 
 We've done 2 security audits and another one in progress currently.
 
-[OtterSec.io](https://osec.io/)
+### Ottersec
+
+Website - [OtterSec.io](https://osec.io/)
+
+Audit report:
 
 {% file src=".gitbook/assets/pontem-liquidswap-ottersec-audit (1).pdf" %}
 
-[Halborn.com](https://halborn.com/)
+The rest of the changes, like flashloans and dynamic fees and configuration, are also reviewed by the Ottersec team but not added to the report.
+
+### Halborn
+
+Website - **** [Halborn.com](https://halborn.com/)
+
+Audit reports:
+
+**General**
 
 {% file src=".gitbook/assets/pontem-liquidswap-halborn-audit.pdf" %}
 
-**Flashloan (Halborn)**
+**Flashloan**
 
 {% file src=".gitbook/assets/pontem-liquidswap-flashloan-halborn-audit.pdf" %}
+
+**Dynamic Fees and Config**
+
+{% file src=".gitbook/assets/pontem-liquidswap-dynamic-fees-config.pdf" %}
 
 ## Developer Links
 
