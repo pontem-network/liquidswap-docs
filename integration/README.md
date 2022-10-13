@@ -4,7 +4,7 @@
 *   The current version of Liquidswap is deployed on the address&#x20;
 
     ```
-    0x4e9fce03284c0ce0b86c88dd5a46f050cad2f4f33c4cdd29d98f501868558c81
+    0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12
     ```
 * The latest release tag can be found on the[ Releases](https://github.com/pontem-network/liquidswap/releases) page.
 

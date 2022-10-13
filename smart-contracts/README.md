@@ -78,7 +78,7 @@ New liquidity pools are created on the registrar account, and the corresponding 
 Almost like Uniswap the Liquidswap creates pools on the reserved address:
 
 ```
-0x8aa500cd155a6087509fa84bc7f0deed3363dd253ecb62b2f110885dacf01c67
+0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948
 ```
 
 All pools are unique, so there can't be two pools containing the same coins, and it also works for LP and LP generics.
