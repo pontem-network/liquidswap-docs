@@ -21,13 +21,13 @@ You can always find the latest release in the [Releases](https://github.com/pont
 All liquidity pools resources and LP coins currently placed at the following resource account:
 
 ```
-0x8aa500cd155a6087509fa84bc7f0deed3363dd253ecb62b2f110885dacf01c67
+0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948
 ```
 
 Liquidswap modules are deployed at the following address:
 
 ```
-0x4e9fce03284c0ce0b86c88dd5a46f050cad2f4f33c4cdd29d98f501868558c81
+0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12
 ```
 
 **All smart contracts and dependencies (exclude that placed on `0x1` address) are immutable.**
