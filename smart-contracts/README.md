@@ -300,7 +300,8 @@ All the functions have 'slippage' amount arguments, like `coin_x_val_min`, `coin
   * `remove_liquidity<X, Y, Curve>` - burns users LP coins and deposit received coin X and coin Y on user account.
 * **Generics can be sorted in any way:**&#x20;
   * `swap<X, Y, Curve>` - swap `Coin<X>` for `Coin<Y>;` the developer has to provide the amount of `X` coins `coin_val` to get the minimum amount `coin_out_min_val` of Y.
-  * `swap_into<X, Y, LP>` - swap no more than the specified maximum amount of `Coin<X>` for an exact amount in `Coin<Y>`. The remainder of `Coin<X>` will be deposited back to the account.
+  * `swap_into<X, Y, Curve>` - swap no more than the specified maximum amount of `Coin<X>` for an exact amount in `Coin<Y>`. The remainder of `Coin<X>` will be deposited back to the account.
+  * `swap_unchecked<X, Y, Curve>` - simply swaps tokens without any additional checks (best price, etc).
 
 ## Helpers
 
