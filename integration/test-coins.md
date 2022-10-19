@@ -1,5 +1,7 @@
 # Test Coins
 
+**This part works only for testnet/devnet, as on mainnet there is production ready coins should be used!**
+
 During the integration, you probably would need test coins, so we prepared a repository containing several coins (USDT, BTC, USDC, DAI, ETH) just for tests.
 
 The existing pools on Liquidswap use our test coins, so it's a good idea to follow standard test coins during integration. &#x20;
