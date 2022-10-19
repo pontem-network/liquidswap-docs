@@ -4,6 +4,12 @@
 
 [Liquidswap](https://liquidswap.com) is the first AMM (Automated Market Maker) on the Aptos blockchain, created to enable safe and decentralized token swaps. The protocol uses smart contracts developed by the Pontem Network team, written in the Move language, and published on the Aptos mainnet.
 
+### Mainnet :tada:
+
+The mainnet has been available since 19.10.2022; the public DApp [liquidswap.com](https://liquidswap.com) works with the mainnet network, and the [contracts](https://github.com/pontem-network/liquidswap) since v0.4.2 deployed to mainnet.
+
+### Features
+
 Supported features and benefits:
 
 * Uncorrelated token swaps (similar to Uniswap V2);
