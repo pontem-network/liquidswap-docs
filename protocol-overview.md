@@ -79,6 +79,10 @@ The solution is to use a different formula for swaps between correlated assets â
 
 By default, Liquidswap supports both curves and allows for the creation of two types of pools: uncorrelated pairs and stables.
 
+#### Decimals  of stable pairs:warning:
+
+If coins used in a stable pool have more than eight decimals, the liquidity operations in the pool can lead to rounding errors and loss of precisions. The Liquidswap DApp would show a warning for such pools, yet we are pretty sure eight decimals is enough for any coin on Aptos.
+
 ## Emergency brake
 
 As the Aptos blockchain, the Move language, and Move VM are all very new technologies, it will take time for them to be fully verified and tested. For this reason, we have implemented an emergency brake to stop all liquidity minting and swaps, while simultaneously allowing liquidity providers to burn their LP tokens.
