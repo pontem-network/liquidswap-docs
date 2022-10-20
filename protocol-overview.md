@@ -85,7 +85,7 @@ As the Aptos blockchain, the Move language, and Move VM are all very new technol
 
 We hope that we will never have to activate the emergency brake, as we have also performed several security audits. Yet, we still want to keep the 'emergency button' in case of an unlikely event of a protocol-level or virtual machine-level issue.
 
-The emergency feature is currently managed by the Pontem team and can later be transferred to a multisignature.
+The emergency feature is currently managed by the Pontem team [MSafe](https://github.com/Momentum-Safe) multisignature and can later be transferred to a DAO.
 
 Once we have verified that the protocol is stable and secure enough, we may disable the emergency brake indefinitely.
 
