@@ -12,27 +12,9 @@ The current `main` branch is the development branch and always contains the late
 
 Release branches contain the latest changes created for the specific release.
 
-The current release tag `v0.4.3` are deployed and released on Aptos mainnet.
+The current release tag `v0.4.2` are deployed and released on Aptos mainnet.
 
 You can always find the latest release in the [Releases](https://github.com/pontem-network/liquidswap/releases) section.
-
-### Routers/scripts versions
-
-As router and scripts are part of periphery we can update router/scripts and release new version time to time, so there can be many routers versions and releases. All official routers/scripts are part of Liquidswap core repository.&#x20;
-
-#### Router v1
-
-**Not recommended to use!** :warning:
-
-Source code - [./sources/swap/router.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/router.move)
-
-It contains a u64 overflow bug in `get_amount_in` and `get_amount_out`, so not advised to use, as both functions can return overflow errors in case numbers are too high.
-
-#### Router v2
-
-Source code - [./liquidswap\_router\_v2](https://github.com/pontem-network/liquidswap/tree/main/liquidswap\_router\_v2)
-
-The Router v2 contains bug fixes for functions in router v2, also scripts are updated too.&#x20;
 
 ### Addresses
 
@@ -225,9 +207,7 @@ Read more in the [integration section](../integration/flashloans.md).
 
 ## Router
 
-Source code - [./liquidswap\_router\_v2/sources/router\_v2.move](https://github.com/pontem-network/liquidswap/blob/main/liquidswap\_router\_v2/sources/router\_v2.move)
-
-**It's recommended to use Router v2** :warning:****
+Source code: [./sources/swap/router.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/router.move).
 
 The Router module is a periphery layer on top of the Liquidity Pool module.
 
@@ -295,7 +275,7 @@ Liquidity operations:
 
 ## Scripts
 
-Source code - [./liquidswaprouter\_v2/sources/scripts\_v2.move](https://github.com/pontem-network/liquidswap/blob/main/liquidswap\_router\_v2/sources/scripts\_v2.move)
+Source code: [./sources/swap/scripts.move](https://github.com/pontem-network/liquidswap/blob/main/sources/swap/scripts.move).
 
 The top-level module contains the entry functions that users can execute directly by sending transactions and that third-party modules can use via `&signer`.
 
@@ -305,7 +285,7 @@ Summary:
 * Accepts numbers as arguments representing coins' values;
 * Extracts coins/tokens directly from the signer account;
 * Registers a LP token on the account if it's not registered;
-* Works with default [Router](./#router) v2.
+* Works with default [Router](./#router).
 
 This is the optimal way to interact with Liquidswap if you want to call a swap from the CLI or the UI using the standard router.
 
