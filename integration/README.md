@@ -12,7 +12,7 @@ Before we start, create a new Move project so that you can repeat the steps as d
 
 #### Supported networks
 
-The Aptos mainnet and testnet is currently supported, we would probably deploy to devnet but it's future plans.
+The Aptos mainnet and testnet are currently supported, we would probably deploy to devnet but it's future plans.
 
 ### Add as dependency
 
@@ -25,6 +25,15 @@ git = 'https://github.com/pontem-network/liquidswap.git'
 rev = 'latest version'
 ```
 {% endcode %}
+
+Import [Router v2:](../smart-contracts/#router-v2)
+
+```rust
+[dependencies.LiquidswapRouterV2]
+git = 'https://github.com/pontem-network/liquidswap.git'
+subdir = 'liquidswap_router_v2/'
+rev = 'latest version'
+```
 
 Add the LP coin module as a dependency too:
 

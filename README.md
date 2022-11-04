@@ -58,6 +58,14 @@ Audit reports:
 
 {% file src=".gitbook/assets/pontem-liquidswap-dynamic-fees-config.pdf" %}
 
+
+
+### Zellic
+
+Website - [https://www.zellic.io/](https://www.zellic.io/)
+
+{% file src=".gitbook/assets/pontem-liquidswap-report-zellic.pdf" %}
+
 ## Developer Links
 
 For a general idea about Liquidswap, start with the [Protocol Overview](protocol-overview.md).
