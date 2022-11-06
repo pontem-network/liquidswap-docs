@@ -36,7 +36,7 @@ The Router v2 contains bug fixes for functions in router v1, also scripts are up
 
 #### Optional routers
 
-* Router v3 - contains bug fixes with accuracy (1-2 units) for stable swaps (see [Zellic audit](../#zellic)): functions to get the amount in or out. Yet, we aren't going to migrate as the solution would eat even more gas. The router available in [branch](https://github.com/pontem-network/liquidswap/tree/router-v3) and deployed to mainnet. &#x20;
+* Router v3 - contains bug fixes with accuracy (1-2 units) for stable swaps (see [Zellic audit](../#zellic)): functions to get the amount in or out. Yet, we aren't going to migrate as the solution would eat more gas. The router available in [branch](https://github.com/pontem-network/liquidswap/tree/router-v3) and deployed to mainnet/testnet. &#x20;
 
 ### Addresses
 
