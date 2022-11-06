@@ -32,7 +32,11 @@ It contains a u64 overflow bug in `get_amount_in` and `get_amount_out`, so not a
 
 Source code - [./liquidswap\_router\_v2](https://github.com/pontem-network/liquidswap/tree/main/liquidswap\_router\_v2)
 
-The Router v2 contains bug fixes for functions in router v2, also scripts are updated too.&#x20;
+The Router v2 contains bug fixes for functions in router v1, also scripts are updated too.&#x20;
+
+#### Optional routers
+
+* Router v3 - contains bug fixes with accuracy (1-2 units) for stable swaps (see [Zellic audit](../#zellic)): functions to get the amount in or out. Yet, we aren't going to migrate as the solution would eat even more gas. The router available in [branch](https://github.com/pontem-network/liquidswap/tree/router-v3) and deployed to mainnet. &#x20;
 
 ### Addresses
 
@@ -223,7 +227,7 @@ The concept was explained early on by the Pontem team in this [Medium article](h
 
 Read more in the [integration section](../integration/flashloans.md).
 
-## Router
+## Routers
 
 Source code - [./liquidswap\_router\_v2/sources/router\_v2.move](https://github.com/pontem-network/liquidswap/blob/main/liquidswap\_router\_v2/sources/router\_v2.move)
 
