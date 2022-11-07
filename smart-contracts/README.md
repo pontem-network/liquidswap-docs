@@ -397,7 +397,7 @@ Source Code: [.sources/swap/dao\_storage.move](https://github.com/pontem-network
 
 The DAO Treasury receives a fee from each swap transaction in every liquidity pool on the protocol.
 
-The treasury is currently managed by Treasury multisig and will be eventually transfered to a full-fledged Pontem DAO.
+The treasury is currently managed by Treasury multisig and will be eventually transferred to a full-fledged Pontem DAO.
 
 #### Config & Dynamic Fees
 
@@ -415,4 +415,4 @@ Source Code: [.sources/swap/emergency.move](https://github.com/pontem-network/li
 
 Can be used to pause/resume all swaps via an emergency account.
 
-The contract itself can be disabled forever once the team can verifies that the protocol is fully stable and will not be derailed by any liquidity event, attack etc.
+The contract itself can be disabled forever once the team can verify that the protocol is fully stable and will not be derailed by any liquidity event, attack etc.
