@@ -2,7 +2,7 @@
 
 ### Typescript
 
-Developer by Pontem team.
+Developed by Pontem team.
 
 **Important note:** the SDK is in active development: we changing API time to time, updating it with missed functions, etc. So before run local update for your project better look at changes. :warning:
 
