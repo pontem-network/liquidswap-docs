@@ -16,7 +16,7 @@ For documentation, refer to the [README](https://github.com/pontem-network/liqui
 
 ### 3rd party SDKs
 
-**IMPORTANT:** USE 3rd PARTY SDKS ON YOUR OWN RISK. :warning:
+**IMPORTANT:** Use 3rd party SDKs on your own risk. :warning:
 
 #### Golang SDK
 
