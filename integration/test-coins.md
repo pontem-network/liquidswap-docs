@@ -38,4 +38,4 @@ use test_coins_extended::extended_coins::{USDC, ETH, DAI};
 
 Repository - [faucet](https://github.com/pontem-network/faucet)
 
-Tests coins are available on Aptos testnet/devnet, to get free coins just do calls to faucet or visit [Liquidswap DApp](https://liquidswap.com).&#x20;
+Tests coins are available on Aptos testnet/devnet, to get free coins just do calls to faucet or visit [Liquidswap DApp](https://testnet.liquidswap.com).&#x20;
