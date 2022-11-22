@@ -18,8 +18,6 @@ Supported features and benefits:
 
 ## Mainnet :tada:
 
-
-
 The current version of Liquidswap is deployed on the Aptos mainnet and located at [https://liquidswap.com](https://liquidswap.com).
 
 The mainnet has been available since 19.10.2022; the [contracts](https://github.com/pontem-network/liquidswap) since v0.4.2 deployed to mainnet.
@@ -58,13 +56,19 @@ Audit reports:
 
 {% file src=".gitbook/assets/pontem-liquidswap-dynamic-fees-config.pdf" %}
 
-
-
 ### Zellic
 
 Website - [https://www.zellic.io/](https://www.zellic.io/)
 
 {% file src=".gitbook/assets/pontem-liquidswap-report-zellic.pdf" %}
+
+## Bounty Program
+
+![](<.gitbook/assets/Logo black.svg>)
+
+Liquidswap has launched a bug bounty program on the [Immunefi](https://immunefi.com/) platform recently.&#x20;
+
+See program overview impacts in scope, and participate - [https://immunefi.com/bounty/liquidswap/](https://immunefi.com/bounty/liquidswap/)
 
 ## Developer Links
 
