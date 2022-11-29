@@ -54,6 +54,12 @@ Liquidswap modules are deployed at the following address:
 
 **All smart contracts and dependencies (exclude that placed on `0x1` address) are immutable.**
 
+#### **Devnet**
+
+For Aptos Devnet support, we used specific different addresses, to be able to deploy contracts each devnet reset.
+
+Use the [devnet-addresses](https://github.com/pontem-network/liquidswap/tree/devnet-addresses) branch, look at [Move.toml](https://github.com/pontem-network/liquidswap/tree/devnet-addresses) to get details: dependencies also has it's own devnet branch, while test coins has the same addresses from testnet.
+
 ## Integrations
 
 This document explains how Liquidswap contracts are organized at the top level.
