@@ -36,7 +36,7 @@ The Router v2 contains bug fixes for functions in router v1, also scripts are up
 
 #### Optional routers
 
-* Router v3 - contains bug fixes with accuracy (1-2 units) for stable swaps (see [Zellic audit](../#zellic)): functions to get the amount in or out. Yet, we aren't going to migrate as the solution would eat more gas. The router available in [branch](https://github.com/pontem-network/liquidswap/tree/router-v3) and deployed to mainnet/testnet. &#x20;
+* Router v3 - contains bug fixes with accuracy (1-2 units) for stable swaps (see [Zellic audit](../#zellic)): functions to get the amount in or out. Yet, we aren't going to migrate as the solution would eat more gas. The router available in [branch](https://github.com/pontem-network/liquidswap/tree/router-v3) and deployed to mainnet/testnet/devnet. &#x20;
 
 ### Addresses
 
@@ -53,6 +53,12 @@ Liquidswap modules are deployed at the following address:
 ```
 
 **All smart contracts and dependencies (exclude that placed on `0x1` address) are immutable.**
+
+#### **Devnet**
+
+For Aptos Devnet support, we used specific different addresses, to be able to deploy contracts each devnet reset.
+
+Use the [devnet-addresses](https://github.com/pontem-network/liquidswap/tree/devnet-addresses) branch, look at [Move.toml](https://github.com/pontem-network/liquidswap/tree/devnet-addresses) to get details: dependencies also has it's own devnet branch, while test coins has the same addresses from testnet.
 
 ## Integrations
 
