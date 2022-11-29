@@ -12,7 +12,9 @@ Before we start, create a new Move project so that you can repeat the steps as d
 
 #### Supported networks
 
-The Aptos mainnet and testnet are currently supported, we would probably deploy to devnet but it's future plans.
+The Aptos mainnet and testnet, devnet are currently supported.&#x20;
+
+For both testnet and mainnet you can use latest tags, for [devnet](../smart-contracts/#devnet) see details.
 
 ### Add as dependency
 
