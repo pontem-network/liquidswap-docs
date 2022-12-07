@@ -101,8 +101,6 @@ struct LiquidityPool<phantom X, phantom Y, phantom Curve> has key {
 * Token decimal scales (used for stable swaps).
 * If a pool is locked (needed for the flashloans).
 
-New liquidity pools are created on the registrar account, and the corresponding resource is placed in that account's storage.
-
 Almost like Uniswap the Liquidswap creates pools on the reserved address:
 
 ```
