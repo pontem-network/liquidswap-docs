@@ -68,7 +68,7 @@ struct StakePool<phantom S, phantom R> has key {
 * `phantom R` generic - coin used to be a reward.
 * Amount of rewards distributed per second.
 * Some technical fields contain information about an accumulated reward, total stakes, and coins' decimal scales.
-* Timestamp when the harvest period ends.
+* Timestamps when the harvest period ends and started.
 * Optional NFT boost configuration and total boosted stakes amount.
 * Users stakes in the table.
 * Events.
