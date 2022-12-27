@@ -2,7 +2,7 @@
 
 <figure><img src="../.gitbook/assets/Снимок экрана 2022-12-27 в 23.18.29.png" alt=""><figcaption></figcaption></figure>
 
-Staking paltform itself available in [Liquidswap DApp](https://liquidswap.com) in the "Hydroponic Farm" section.
+Staking paltform itself available in [Liquidswap DApp](https://testnet.liquidswap.com/#/stakes) in the "Hydroponic Farm" section.
 
 Supported functional in the UI:
 
