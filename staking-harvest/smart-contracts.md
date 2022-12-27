@@ -139,7 +139,7 @@ Almost all functions require the address of the pool (`pool_addr`), the address 
 * `stake<S, R>` - stakes user coins. If a user stake exists, it updates the current stake and relocks it again for one week.
 * `unstake<S, R>` - unstakes user-staked coins, requires an amount to unstake, and returns unstaked coins.
 * `harvest<S, R>` - harvests rewards for user stake and returns reward coin.
-* boost\<S, R> - bosts user stake with NFT, requires `Token` as an argument.
+* `boost<S, R>` - bosts user stake with NFT, requires `Token` as an argument.
 * `remove_boost<S, R>` - removes NFT boost from user stake, returns `Token`.&#x20;
 
 **Getters**
@@ -154,7 +154,12 @@ Almost all functions require the address of the pool (`pool_addr`), the address 
 * `get_user_stake<S, R>` - get the user stake amount in the pool.
 * `get_user_boosted<S, R>` - get user boosted stake amount in the pool.
 * `get_pending_user_rewards<S, R>` - get the amount of user rewards that pending harvest.
-* `is_emergency` / `is_local_emergency` - get true if a global or local emergency happens..
+* `is_emergency` / `is_local_emergency` - get true if a global or local emergency happens.
+* `is_boostable` - get true if the pool stake can be boosted with NFT.
+* `get_start_timestamp` - get timestamp of a pool creation.
+* `is_boosted` - get true if user stake boosted.
+* `get_unlock_time` - get timestamp when a user stake can be unstaked.
+* `is_unlocked` - get true if a user stake can be unstaked.
 
 The rest of the functions are related to emergency or admin accounts. If you are interested in a more detailed explanation, look at [the source code](https://github.com/pontem-network/harvest/blob/main/sources/stake.move), it has rich comments.
 
