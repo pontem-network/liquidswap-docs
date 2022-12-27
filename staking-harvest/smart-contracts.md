@@ -8,14 +8,14 @@ The harvest repository contains the main staking code core, entry functions, and
 
 The current `main` branch is the development branch and always contains the latest changes.
 
-Release tags used for deployment on production. You can always find the latest release in the [Releases](https://github.com/pontem-network/harvest/releases) section and use it for dependency in your project.&#x20;
+Release tags used for deployment on production (mainnet) in the future. You can always find the latest release in the [Releases](https://github.com/pontem-network/harvest/releases) section and use it for dependency in your project.&#x20;
 
 ### Addresses & Networks
 
-The contracts deployed on both mainnet and testnet. The address used to deploy on networks:
+The contracts deployed on testnet. The address used to deploy:
 
 ```
-0x0f66a21efeeae7adda7688473b140dfae1e42f4a669d5c4026dfc7d12443a6b2
+0xbaaf53f7b9017ec4be9623c60b6182f2ffba1f01bc67f292295bcfe17f327701
 ```
 
 ### Staking contract
@@ -34,6 +34,8 @@ struct StakePool<phantom S, phantom R> has key {
     accum_reward: u128,
     // last accum_reward update time
     last_updated: u64,
+    // start timestamp.
+    start_timestamp: u64,
     // when harvest will be finished.
     end_timestamp: u64,
 

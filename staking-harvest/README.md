@@ -1,6 +1,6 @@
 # Staking / Harvest
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 **The staking is available only on Liquidswap Testnet; once it is released to the mainnet, we will announce it!** :warning:****
 
