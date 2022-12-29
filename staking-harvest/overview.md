@@ -8,7 +8,7 @@ At the stage of creation, the pool would calculate the number of rewards that ca
 
 `reward_per_second = rewards / duration`&#x20;
 
-The accumulated rewards since the last harvest event would be split between all stackers during the harvest. The accumulated reward will go to the [treasury](overview.md#treasury) if there is no stacker.
+All accumulated rewards would be split between all stakers during the harvesting, and if there are no stakers - the accumulated reward will go to the [treasury](overview.md#treasury).&#x20;
 
 In the first step accumulated reward is calculated and divided by the total stake:
 
