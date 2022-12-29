@@ -1,6 +1,6 @@
 # Overview
 
-The Liquidswap staking allows the creation of new staking pools where the creator provides stake and reward coins. During the creation of the staking pool, the duration of the harvest period must be provided.
+The Liquidswap staking allows the creation of new staking pools where the creator configures stake and reward coins types and the duration of the harvest period.
 
 The staking pool stores all information regarding staking itself, such as rewards, stakes, duration, etc. The staking pool will be created and stored on the creator account of the pool.
 
@@ -16,7 +16,7 @@ In the first step accumulated reward is calculated and divided by the total stak
 
 In the second step, we calculate the user reward:
 
-`user_reward = accum_reward * user_stake - unobtainable_reward`
+`user_reward = (accum_reward * user_stake) - unobtainable_reward`
 
 The unobtainable reward is used to fix rewards that accumulated before the user joined the pool and doesn't allow to take additional rewards in specific cases.
 
@@ -40,13 +40,13 @@ So, if you want to extend the harvest period, deposit more rewards into the pool
 
 ### After harvest period
 
-After the harvest period (when the end timestamp is reached), it is still possible for a user to harvest his remaining rewards and unstake his coins/NFT. Yet, harvesting, staking more, or extending the pool duration wouldn't be possible.
+After the harvest period (when the end timestamp is reached), it is still possible for a user to harvest his remaining rewards and unstake his coins/NFT. Yet, accumulating new rewards, staking more, or extending the pool duration wouldn't be possible.
 
 ### Stake Coin & Rewards Coin
 
 Any coin in the Aptos blockchain (indeed registered one) can be used as a reward coin or stake coin, and both reward/stake can be the same coin.&#x20;
 
-**Important:** It may not work with exotic coins (large decimals amounts, too large supply), so use at your own risk and double-check (e.g., by forking and running tests with your coin, etc.). :warning:
+**Important:** It may not work with exotic coins (large decimals amounts, too large supply), so use at your own risk and double-check (e.g., by forking and running tests with your coin, etc.). Also, very important to be sure that the amount of the reward (including the amount that will be distributed per second) will be enough to distribute between all possible stakers :warning:
 
 ### NFTs stake
 
