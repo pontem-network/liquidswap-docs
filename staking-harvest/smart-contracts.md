@@ -139,27 +139,27 @@ Almost all functions require the address of the pool (`pool_addr`), the address 
 * `stake<S, R>` - stakes user coins. If a user stake exists, it updates the current stake and relocks it again for one week.
 * `unstake<S, R>` - unstakes user-staked coins, requires an amount to unstake, and returns unstaked coins.
 * `harvest<S, R>` - harvests rewards for user stake and returns reward coin.
-* `boost<S, R>` - bosts user stake with NFT, requires `Token` as an argument.
+* `boost<S, R>` - boosts user stake with NFT, requires `Token` as an argument.
 * `remove_boost<S, R>` - removes NFT boost from user stake, returns `Token`.&#x20;
 
 **Getters**
 
 * `get_boost_config<S, R>` - get NFT boost configuration parameters: collection creator, name, boost percent.
-* `is_finished<S, R>` - get true if the harvest period is finished.
+* `is_finished<S, R>` - returns true if the harvest period is finished.
 * `get_end_timestamp<S, R>` - get the end timestamp of the harvest period.
-* `pool_exists<S, R>`  - get true if pool exists.
-* `stake_exists<S, R>` - get true if user stake exists.
+* `pool_exists<S, R>`  - returns true if pool exists.
+* `stake_exists<S, R>` - returns true if user stake exists.
 * `get_pool_total_stake<S, R>` - returns total staked amount of the pool.
-* `get_pool_total_stake<S, R>` - returns the total staked amount of the pool.
+* `get_pool_total_boosted<S, R>` - returns the total staked (include boosted) amount of the pool.
 * `get_user_stake<S, R>` - get the user stake amount in the pool.
 * `get_user_boosted<S, R>` - get user boosted stake amount in the pool.
 * `get_pending_user_rewards<S, R>` - get the amount of user rewards that pending harvest.
-* `is_emergency` / `is_local_emergency` - get true if a global or local emergency happens.
-* `is_boostable` - get true if the pool stake can be boosted with NFT.
-* `get_start_timestamp` - get timestamp of a pool creation.
-* `is_boosted` - get true if user stake boosted.
-* `get_unlock_time` - get timestamp when a user stake can be unstaked.
-* `is_unlocked` - get true if a user stake can be unstaked.
+* `is_emergency<S, R>` / `is_local_emergency<S, R>` - returns true if a global or local emergency happens.
+* `is_boostable<S, R>` - returns true if the pool stake can be boosted with NFT.
+* `get_start_timestamp<S, R>` - get timestamp of a pool creation.
+* `is_boosted<S, R>` - returns true if user stake boosted.
+* `get_unlock_time<S, R>` - get timestamp when a user stake can be unstaked.
+* `is_unlocked<S, R>` - returns true if a user stake can be unstaked.
 
 The rest of the functions are related to emergency or admin accounts. If you are interested in a more detailed explanation, look at [the source code](https://github.com/pontem-network/harvest/blob/main/sources/stake.move), it has rich comments.
 
