@@ -27,7 +27,7 @@ rev = 'v0.4.3'
 
 ### Register pool / Stake
 
-**Important:** The following examples show how you can iterate with staking contracts in your smart contracts/product. The example done for educational purposes, your code would be very different.&#x20;
+**Important:** The following examples show how you can interact with staking contracts in your smart contracts/product. The example done for educational purposes, your code would be very different.&#x20;
 
 Let's say we want to register a pool that will use Liquidswap LP coins as staking coins and reward coins as unknown generic. After that, we will immediately stake.
 
