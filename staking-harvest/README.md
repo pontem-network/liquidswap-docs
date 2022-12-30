@@ -25,8 +25,4 @@ The easiest way to use the staking protocol is via the[ Liquidswap Dapp](https:/
 
 The staking contracts have been reviewed and audited by the Ottersec and Halborn security teams. Once the reports are available, we will publish them here.
 
-\*In Aptos, the term ‘coin’ is used to denote both what is called ‘coins’ and ‘tokens’ in other blockchain ecosystems. Thus, we use ‘LP coins’ here as the correct term in the context of the Aptos architecture, though the meaning is the same as in ‘LP tokens’ on other chains.
-
-\
-
-
+_\*In Aptos, the term ‘coin’ is used to denote both what is called ‘coins’ and ‘tokens’ in other blockchain ecosystems. Thus, we use ‘LP coins’ here as the correct term in the context of the Aptos architecture, though the meaning is the same as in ‘LP tokens’ on other chains._
