@@ -2,24 +2,31 @@
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-**The staking is available only on Liquidswap Testnet; once it is released to the mainnet, we will announce it!** :warning:****
+**Staking is currently available only on Liquidswap Testnet. We will make a separate announcement once it is released on the mainnet.** :warning:****
 
-The goal of staking developed by the Liquidswap team is to incentivize liquidity providers and reward them with protocol coins: including the protocol ones and 3rd party projects.
+**Why launch Harvest?**
 
-Staking is built in a simple manner, but at the same time, our staking is fully permissionless and independent. Therefore, it can be used by other projects to configure and launch their staking pools; it doesn't belong to Liquidswap LP coins, as any coins can be used as a stake and as a reward.
+The objective of Liquidswap’s Harvest staking program is to incentivize liquidity providers by rewarding them with APT and third-party coins (tokens) issued on Aptos.&#x20;
 
-The staking contracts are built in Move language. The key features are:
+Staking is easy to use, fully permissionless, and independent at the same time. Other projects can use the Harvest solution to configure and launch their own staking pools. You don’t even have to use Liquidswap LPs: any assets issued on Aptos can be used for staking and as rewards.
+
+The staking contracts are written in Move. The key features are:
 
 * The contracts are permissionless: anyone can create a new staking pool.
-* Any coins can be used as stake or reward coins.
-* NFT can be used as a boost parameter for the pool.
-* Rewards can be deposited to a pool at any time and will extend the harvest period.
-* Users can unstake their coins without loss of profit at any time after one week since the stake passed or once the harvest period is finished.
-* Users can withdraw rewards at any time by harvesting.
+* Any coins\* can be used as the staking or reward asset.
+* NFTs can be used as an additional parameter for the pool to provide reward boosts to the users holding specified NFTs.
+* Rewards can be deposited into the pool at any time to extend the harvesting period.
+* Users can unstake their coins without losing any of the profit after 1 week of staking - or once the harvesting period is complete.
+* Users can harvest (withdraw) the accumulated rewards at any time.
 
-Simples way to use staking protocol is [Liquidswap DApp](https://liquidswap.com) or continue with current documentation to learn more about protocol and smart contracts.
+The easiest way to use the staking protocol is via the[ Liquidswap Dapp](https://liquidswap.com/). Alternatively, continue reading the documentation to learn more about the protocol and its smart contracts.
 
 ### Security audits
 
-The staking contracts were reviewed and audited by Ottersec and Halborn security teams. Once reports are available, we will publish them here.
+The staking contracts have been reviewed and audited by the Ottersec and Halborn security teams. Once the reports are available, we will publish them here.
+
+\*In Aptos, the term ‘coin’ is used to denote both what is called ‘coins’ and ‘tokens’ in other blockchain ecosystems. Thus, we use ‘LP coins’ here as the correct term in the context of the Aptos architecture, though the meaning is the same as in ‘LP tokens’ on other chains.
+
+\
+
 
