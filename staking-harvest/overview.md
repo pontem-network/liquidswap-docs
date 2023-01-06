@@ -1,58 +1,58 @@
 # Overview
 
-The Liquidswap staking allows the creation of new staking pools where the creator configures stake and reward coins types and the duration of the harvest period.
+Liquidswap staking allows developers to create new staking pools, configuring the stake and reward coin types and the duration of the harvest period.
 
-The staking pool stores all information regarding staking itself, such as rewards, stakes, duration, etc. The staking pool will be created and stored on the creator account of the pool.
+A staking pool stores all the information regarding staking itself, such as rewards, stakes, duration, etc. Any new staking pool will be created and stored on the pool creator's account.
 
-At the stage of creation, the pool would calculate the number of rewards that can be distributed per second using the following formula:
+At the point of creation, the pool will calculate the number of reward coins that can be distributed per second using the following formula:
 
 `reward_per_second = rewards / duration`&#x20;
 
-All accumulated rewards would be split between all stakers during the harvesting, and if there are no stakers - the accumulated reward will go to the [treasury](overview.md#treasury).&#x20;
+All accumulated rewards will be split between all the stakers during harvesting. If there are no stakers, all accumulated rewards will go to the [treasury](overview.md#treasury).&#x20;
 
-In the first step accumulated reward is calculated and divided by the total stake:
+In the first step, the accumulated reward is calculated and divided by the total staked amount:
 
 `accum_reward = (reward_per_sec * time_passed) / total_stake`
 
-In the second step, we calculate the user reward:
+In the second step, we calculate the user's reward:
 
 `user_reward = (accum_reward * user_stake) - unobtainable_reward`
 
-The unobtainable reward is used to fix rewards that accumulated before the user joined the pool and doesn't allow to take additional rewards in specific cases.
+The 'unobtainable reward' part is used to fix the rewards that were accumulated before the user joined the pool and prevents the user from claiming excessive rewards in specific cases.
 
-### Week Lock
+### Weekly Lock
 
-All stakers are locked for one week by default. After that one-week stakers can unlock their stake. If the harvest period finishes early, it's possible to unlock early.
+All stakes are locked for one week by default. After that initial week elapses, stakers can unlock their coins. If the harvest period finishes early, it's also possible to unlock early.
 
 ### Harvest
 
-To earn rewards, users should harvest on their stake - send a transaction to call the harvest function from time to time. It can be done with the DApp user interface.
+To earn rewards, users should perfrom harvesting from time to time by sending a transaction to call the harvest function from. It can be done via the dApp user interface.
 
-### Extending of harvest period
+### Extending the harvest period
 
-Deposit more rewards to the pool is possible after pool creation. Anyone with a rewards coin can do it before the end of the harvest period.
+Depositing more rewards into the pool becomes possible immediately after the pool is created. Anyone who holds reward coins can do it before the end of the harvest period.
 
-By depositing more rewards to the pool, the harvest period will be extended on time got from the formula:
+Whenever additional rewards are deposited into the pool, the harvest period is extended by the amount of time calculated according to the formula:
 
 `extend_seconds = extended_rewards / rewards_per_sec`
 
-So, if you want to extend the harvest period, deposit more rewards into the pool.
+Therefore, if you want to extend the harvest period, simply deposit more rewards into the pool.
 
-### After harvest period
+### After the harvest period
 
-After the harvest period (when the end timestamp is reached), it is still possible for a user to harvest his remaining rewards and unstake his coins/NFT. Yet, accumulating new rewards, staking more, or extending the pool duration wouldn't be possible.
+After the harvest period (once the end timestamp is reached), it is still possible for a user to harvest their remaining rewards and unstake their coins/NFT. Yet, it will not be possible for them to accumulate new rewards, stake more, or extend the pool duration.
 
-### Stake Coin & Rewards Coin
+### Staking Coin & Reward Coin
 
-Any coin in the Aptos blockchain (indeed registered one) can be used as a reward coin or stake coin, and both reward/stake can be the same coin.&#x20;
+Any coin issued on the Aptos blockchain (and registered) can be used as the reward coin or staking coin, and both the rewards and stakes can be denominated in the same coin.
 
-**Important:** It may not work with exotic coins (large decimals amounts, too large supply), so use at your own risk and double-check (e.g., by forking and running tests with your coin, etc.). Also, very important to be sure that the amount of the reward (including the amount that will be distributed per second) will be enough to distribute between all possible stakers :warning:
+**Important:** It may not work with exotic coins (large decimal numbers, extremely large supply), so use this feature at your own risk and double-check that everything works (e.g. by forking and running tests with your coin, etc.). Also, it is very important to be sure that the reward amount (including the amount that will be distributed per second) is enough to be distributed among all the potential stakers :warning:
 
-### NFTs stake
+### NFT staking
 
-NFT collection can be configured during the creation of the pool, and NFTs from the collection can be a stake in addition to the stake itself and boost stake power.
+The NFT collection for boosting can be configured during the pool's creation, and NFTs from that collection can be used as a stake in addition to the staking coins themselves to boost the staking power.
 
-Each pool configured for NFT boost has a boost percent and user stakes becoming boosted by the formula:
+Each pool configured for an NFT boost has its own boost percentage rate, and user stakes are boosted according to the formula:
 
 ```
 boosted_stake = stake * boost_percent / 100
@@ -62,16 +62,16 @@ boosted_stake = stake * boost_percent / 100
 
 The treasury account is a multisignature account created with [Momentum Safe](https://github.com/Momentum-Safe).
 
-The treasury withdraws the remaining rewards three months after the harvest period is finished or immediately in an emergency.
+The treasury withdraws any rewards left three months after the harvest period is completed - or immediately in case of an emergency.
 
-Later treasury will be transferred under the control of the DAO account.
+In the future, the treasury will be transferred under the control of the DAO account.
 
 ### Emergency
 
-The staking contracts can stop in an emergency, while an emergency account controls the emergency mechanism. The account is a multisignature account created with [Momentum Safe](https://github.com/Momentum-Safe).
+Staking contracts can be stopped in case of an emergency, while the emergency account controls the emergency mechanism. The account is a multisignature account created with [Momentum Safe](https://github.com/Momentum-Safe).
 
-Contracts have two kinds of emergency: by the pool and global. In the case of global, all pools would be stopped by emergency. Otherwise, it can stop only a specific pool. Emergency can't be undone, as it breaks staking math.
+Contracts have two kinds of emergency coded into them: pool-specific and global. In case of a global event, all pools will be stopped. Otherwise, only a specific pool will be stopped. Emergency stoppage can't be undone, as it breaks the staking math.
 
-In an emergency, stakers can withdraw their stake (coins/NFT) immediately, and the treasury account can withdraw the remaining rewards.
+In an emergency, stakers can withdraw their stakes (coins/NFT) immediately, and the treasury account can withdraw the remaining rewards.
 
-We will transfer the emergency role under the control of the DAO account later.
+We will transfer the emergency role under the control of the DAO account in the future.
