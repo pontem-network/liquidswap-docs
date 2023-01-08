@@ -12,7 +12,7 @@ The current `main` branch is the development branch and always contains the late
 
 Release branches contain the latest changes created for the specific release.
 
-The current release tag `v0.4.3` are deployed and released on Aptos mainnet.
+The current release tag `v0.4.4` are deployed and released on Aptos mainnet.
 
 You can always find the latest release in the [Releases](https://github.com/pontem-network/liquidswap/releases) section.
 
