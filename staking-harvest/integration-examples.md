@@ -24,7 +24,7 @@ As we are going to use Liquidswap LP coins in the example (though it's not manda
 [dependencies.LiquidswapLP]
 git = 'https://github.com/pontem-network/liquidswap.git'
 subdir = 'liquidswap_lp/'
-rev = 'v0.4.3'
+rev = 'v0.4.4'
 ```
 
 ### Register pool / stake
