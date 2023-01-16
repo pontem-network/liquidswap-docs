@@ -27,40 +27,41 @@ It's the core contract of the Liquidswap staking protocol. It manages staking po
 The key part of the staking contracts is the `StakingPool<S, R>` resource, which contains all the information about a pool, rewards, events, and stakers:
 
 ```rust
-/// Stake pool, stores stake, reward coins and related info.
+// Stake pool, stores stake, reward coins and related info.
 struct StakePool<phantom S, phantom R> has key {
-    reward_per_sec: u64,
-    // pool reward ((reward_per_sec * time) / total_staked) + accum_reward (previous period)
-    accum_reward: u128,
-    // last accum_reward update time
-    last_updated: u64,
-    // start timestamp.
-    start_timestamp: u64,
-    // when harvest will be finished.
-    end_timestamp: u64,
+   reward_per_sec: u64,
+   // pool reward ((reward_per_sec * time) / total_staked) + accum_reward (previous period)
+   accum_reward: u128,
+   // last accum_reward update time
+   last_updated: u64,
+   // start timestamp.
+   start_timestamp: u64,
+   // when harvest will be finished.
+   end_timestamp: u64,
 
-    stakes: table::Table<address, UserStake>,
-    stake_coins: Coin<S>,
-    reward_coins: Coin<R>,
-    stake_scale: u128,
+   stakes: table::Table<address, UserStake>,
+   stake_coins: Coin<S>,
+   reward_coins: Coin<R>,
+   // multiplier to handle decimals
+   scale: u128,
 
-    total_boosted: u128,
+   total_boosted: u128,
 
-    /// This field can contain pool boost configuration.
-    /// Pool creator can give ability for users to increase their stake profitability
-    /// by staking nft's from specified collection.
-    nft_boost_config: Option<NFTBoostConfig>,
+   /// This field can contain pool boost configuration.
+   /// Pool creator can give ability for users to increase their stake profitability
+   /// by staking nft's from specified collection.
+   nft_boost_config: Option<NFTBoostConfig>,
 
-    /// This field set to `true` only in case of emergency:
-    /// * only `emergency_unstake()` operation is available in the state of emergency
-    emergency_locked: bool,
+   /// This field set to `true` only in case of emergency:
+   /// * only `emergency_unstake()` operation is available in the state of emergency
+   emergency_locked: bool,
 
-    stake_events: EventHandle<StakeEvent>,
-    unstake_events: EventHandle<UnstakeEvent>,
-    deposit_events: EventHandle<DepositRewardEvent>,
-    harvest_events: EventHandle<HarvestEvent>,
-    boost_events: EventHandle<BoostEvent>,
-    remove_boost_events: EventHandle<RemoveBoostEvent>,
+   stake_events: EventHandle<StakeEvent>,
+   unstake_events: EventHandle<UnstakeEvent>,
+   deposit_events: EventHandle<DepositRewardEvent>,
+   harvest_events: EventHandle<HarvestEvent>,
+   boost_events: EventHandle<BoostEvent>,
+   remove_boost_events: EventHandle<RemoveBoostEvent>,
 }
 ```
 
