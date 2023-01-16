@@ -151,7 +151,7 @@ Almost all functions require the address of the pool (`pool_addr`) and the addre
 * `pool_exists<S, R>`  - get true if the pool exists.
 * `stake_exists<S, R>` - get true if the user stake exists.
 * `get_pool_total_stake<S, R>` - returns the total staked amount for the pool.
-* `get_pool_total_stake<S, R>` - returns the total staked amount for the pool.
+* `get_pool_total_boosted<S, R>` - returns the total boosted stake amount for the pool.
 * `get_user_stake<S, R>` - get the user stake amount in the pool.
 * `get_user_boosted<S, R>` - get the user's boosted stake amount in the pool.
 * `get_pending_user_rewards<S, R>` - get the amount the user's rewards that are pending (awaiting harvest).
