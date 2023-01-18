@@ -6,17 +6,21 @@ The harvest repository contains the main staking code core, entry functions, and
 
 ### Branches and Versions
 
-The current `main` branch is the development branch and always contains the latest changes.
+Release tags are to be used for deployment on production (mainnet).
 
-Release tags are to be used for deployment on production (mainnet) in the future. You can always find the latest release in the [Releases](https://github.com/pontem-network/harvest/releases) section and use it for the relevant dependencies in your project.&#x20;
+You can always find the latest release in the [Releases](https://github.com/pontem-network/harvest/releases) section and use it for the relevant dependencies in your project.&#x20;
 
 ### Addresses & Networks
 
-The deployed contracts are on testnet. The address used to deploy is as follows:
+The deployed contracts are on both mainnet and testnet.&#x20;
+
+The **mainnet** address used to deploy is as follows:
 
 ```
 0xbaaf53f7b9017ec4be9623c60b6182f2ffba1f01bc67f292295bcfe17f327701
 ```
+
+The **testnet** addresses can be found in the following [PR](https://github.com/pontem-network/harvest/pull/38).&#x20;
 
 ### Staking contract
 
@@ -91,7 +95,8 @@ So for a staking pool that allows staking Liquidswap LPs for the APT/USDC (Layer
 ```rust
 0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948::lp_coin::LP<
     0xf22bede237a07e121b56d91a491eb7bcdfd1f5907926a9e58338f964a01b17fa::asset::USDC,
-    0x1::aptos_coin::AptosCoin
+    0x1::aptos_coin::AptosCoin,
+    0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::curves::Uncorrelated
 >
 ```
 

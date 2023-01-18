@@ -2,8 +2,6 @@
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-**Staking is currently available only on Liquidswap Testnet. We will make a separate announcement once it is released on the mainnet.** :warning:****
-
 **Why launch Harvest?**
 
 The objective of Liquidswap’s Harvest staking program is to incentivize liquidity providers by rewarding them with APT and third-party coins (tokens) issued on Aptos.&#x20;
