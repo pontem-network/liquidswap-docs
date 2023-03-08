@@ -1,6 +1,6 @@
-# LiquidSwap Widget
+# Liquidswap Widget
 
-A web component custom element which can be embedded to any frontend application or even plain html / js / css. Using full strength of [https://www.npmjs.com/package/@pontem/liquidswap-sdk](https://www.npmjs.com/package/@pontem/liquidswap-sdk) widget can provide swap operations with multiple wallets.
+A web component custom element that can be embedded in any frontend application, or even plain HTML/JS/CSS. Using the full strength of the [SDK](typescript-sdk.md), the widget can provide swap operations from any other custom dApp, wallet, etc.
 
 ## Installation
 
@@ -16,7 +16,7 @@ npm install @pontem/liquidswap-widget
 
 ## Usage
 
-Function `loadWidget` accepts widgets HTML tag name as string. It can be custom name but should be in kebab case. We recommend to use ‘liquidswap-widget’ name. Passed name should be exactly the same as tag name.
+Function `loadWidget` accepts widget HTML tag name as string. It can be custom name but must be in kebab case. We recommend to use `liquidswap-widget` name. Passed name must be exactly the same as tag name.
 
 *   React
 
@@ -80,9 +80,9 @@ Widget example published to github pages:
 
 [https://pontem-network.github.io/liquidswap-widget/](https://pontem-network.github.io/liquidswap-widget/)
 
-## LiquidSwap Widget as Dapp (native wallet application) <a href="#wallet-integration" id="wallet-integration"></a>
+## Liquidswap Widget as Dapp (native wallet application) <a href="#wallet-integration" id="wallet-integration"></a>
 
-LiquidSwap Widget could be used as Dapp inside wallet.
+Liquidswap Widget could be used as Dapp inside wallet.
 
 In that case web-custom-element needs several properties:
 
@@ -108,8 +108,8 @@ interface ITransactionStatus {
 const transactionStatus: ITransactionStatus = { status: 'pending', hash: null };
 ```
 
-* Properties should be passed as strings (data-attributes), so to pass ‘Object’ variable you need to use JSON.stringify() on passing ‘Object’.
-* Properties will be extruded with JSON.parse() inside widget;
+* Properties should be passed as strings (data-attributes), so to pass `Object` variable you need to use `JSON.stringify()` on passing `Object`.
+* Properties will be extruded with `JSON.parse()` inside widget;
 * Properties are reactive, so any change to props will update widget’s internal store;
 
 Also, widget will dispatch to Custom Events:
