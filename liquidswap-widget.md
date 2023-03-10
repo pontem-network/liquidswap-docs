@@ -1,6 +1,6 @@
 # Liquidswap Widget
 
-A web component custom element that can be embedded in any frontend application, or even plain HTML/JS/CSS. Using the full strength of the [SDK](typescript-sdk.md), the widget can provide swap operations from any other custom dApp, wallet, etc.
+The widget is a custom web element that can be embedded in any frontend application, or even in a plain HTML/JS/CSS page. Liquidswap widget leverages the full strength of our [SDK](typescript-sdk.md) and can enable token swaps for any other custom dApp, wallet, etc.
 
 ## Installation
 
@@ -16,7 +16,7 @@ npm install @pontem/liquidswap-widget
 
 ## Usage
 
-Function `loadWidget` accepts widget HTML tag name as string. It can be custom name but must be in kebab case. We recommend to use `liquidswap-widget` name. Passed name must be exactly the same as tag name.
+The function `loadWidget` accepts a widget HTML tag name as a string. It can be a custom name, but it must be in the kebab case. We recommend to use the name `liquidswap-widget`. The passed name must be exactly the same as the tag name.
 
 *   React
 
@@ -51,13 +51,13 @@ Function `loadWidget` accepts widget HTML tag name as string. It can be custom n
     ```
 *   Any other framework / lib
 
-    1. Make sure you added html tag `liquidswap-widget` into app.
+    1. Make sure to add the html tag `liquidswap-widget` to your app.
 
     ```html
     <liquidswap-widget></liquidswap-widget>
     ```
 
-    1. Import `loadWidget` function from npm and run with passing html tag name in kebab case;
+    1. Import the `loadWidget` function from npm and run it passing the html tag name in the kebab case;
 
     ```
     import { loadWidget } from '@pontem/liquidswap-widget';loadWidget('liquidswap-widget');
@@ -65,34 +65,34 @@ Function `loadWidget` accepts widget HTML tag name as string. It can be custom n
 
 ## When Loaded
 
-You can listen widget and add some logic (if necessary) when widget is embedded:
+You can listen to the widget and add extra logic (if necessary) once the widget is embedded:
 
 ```jsx
-// customElements defined at global window object. 
+// customElements defined as a global window object. 
 customElements.whenDefined('liquidswap-widget').then(() => {
-     // here custom logic
+     // custom logic goes here
 });
 ```
 
 ## Live Example
 
-Widget example published to github pages:
+Here is a widget code example published in Pontem's GitHub directory:
 
 [https://pontem-network.github.io/liquidswap-widget/](https://pontem-network.github.io/liquidswap-widget/)
 
-## Liquidswap Widget as Dapp (native wallet application) <a href="#wallet-integration" id="wallet-integration"></a>
+## Liquidswap Widget as a dApp (native wallet application) <a href="#wallet-integration" id="wallet-integration"></a>
 
-Liquidswap Widget could be used as Dapp inside wallet.
+Liquidswap Widget can be used as an in-wallet dApp.
 
-In that case web-custom-element needs several properties:
+In that case, the web-custom-element needs several properties:
 
-* Account address of wallet;
+* Wallet account address;
 
 ```tsx
 const dataAccount = '0x15fd61229f6e12b51adbff45b7b74310c7eaf9c24ef8c13b653c8f2a07bc1d14';
 ```
 
-* Network information: name and chainId;
+* Network info: name and chainId;
 
 ```tsx
 const dataNetwork = { name: 'mainnet', chainId: '1' };
@@ -108,14 +108,14 @@ interface ITransactionStatus {
 const transactionStatus: ITransactionStatus = { status: 'pending', hash: null };
 ```
 
-* Properties should be passed as strings (data-attributes), so to pass `Object` variable you need to use `JSON.stringify()` on passing `Object`.
-* Properties will be extruded with `JSON.parse()` inside widget;
-* Properties are reactive, so any change to props will update widget’s internal store;
+* Properties should be passed as strings (data-attributes); thus, in order to pass the variable `Object`, you need to use `JSON.stringify()` on the `Object` being passed;
+* Properties will be extruded with `JSON.parse()` inside the widget;
+* Properties are reactive, so any change to props will update the widget’s internal store;
 
-Also, widget will dispatch to Custom Events:
+Also, the widget will dispatch to Custom Events:
 
-1. ‘**signAndSubmitTransaction**’ - this event will return CustomEvent with ‘detail’ property containing ready for wallet transaction payload. Just accept props inside handler and you will find prop ‘detail’ with full transaction payload;
-2. ‘**transactionProcessed**’ - this event will be fired after widget accepts hash and status of transaction and correctly resolves it with.
+1. ‘**signAndSubmitTransaction**’ - this event will return CustomEvent with the ‘detail’ property containing a ready-for-wallet transaction payload. Simply accept the props inside the handler, and you will find prop ‘detail’ with the full transaction payload;
+2. ‘**transactionProcessed**’ - this event will be fired after the widget accepts the transaction's hash and status and correctly resolves it with
 
 <details>
 
@@ -139,12 +139,12 @@ export const Widget = () => {
   
   const ref = useRef();
   const transactionHandler = (props: CustomEvent) => {
-    // props.detail will be contain payload. 
+    // props.detail will be the contained payload. 
   };
   const processedHandler = (event: CustomEvent) => {
-    // this event will be fired when user close modal with transaction status
-    // neither it's success or error. After that point we do not need to 
-    // provide hash or status. So it should be set to initial State: 
+    // this event will be fired if a user closes the modal with the transaction status
+    // with neither success nor error. In this case, we do not need to 
+    // provide a hash or status. Therefore, it should be set to the initial State: 
     setTransactionStatus({ status: 'pending', hash: null });
   };
   useLayoutEffect(() => {
@@ -178,4 +178,4 @@ export const Widget = () => {
 
 </details>
 
-Note: When this properties are passed to widget - it treats Parent element as ‘wallet environment’, so connect / disconnect wallet flow will be skipped / hidden.
+Note: When these properties are passed to the widget, it treats the Parent element as ‘wallet environment’, so the connect / disconnect wallet flow will be skipped / hidden.
