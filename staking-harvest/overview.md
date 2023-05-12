@@ -46,6 +46,12 @@ After the harvest period (once the end timestamp is reached), it is still possib
 
 Any coin issued on the Aptos blockchain (and registered) can be used as the reward coin or staking coin, and both the rewards and stakes can be denominated in the same coin.
 
+Decimals from the Staking coin and Rewards coin are used to calculate scale. The scale is a variable used to get quite accurate results for rewards, share:
+
+```
+scale = (10e12 / pow(10, reward_decimals)) * pow(10, stake_decimals)
+```
+
 **Important:** It may not work with exotic coins (large decimal numbers, extremely large supply), so use this feature at your own risk and double-check that everything works (e.g. by forking and running tests with your coin, etc.). Also, it is very important to be sure that the reward amount (including the amount that will be distributed per second) is enough to be distributed among all the potential stakers :warning:
 
 ### NFT staking

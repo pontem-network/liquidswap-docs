@@ -40,7 +40,7 @@ The rest of the changes, like flashloans and dynamic fees and configuration, are
 
 ### Halborn
 
-Website - **** [Halborn.com](https://halborn.com/)
+Website - [Halborn.com](https://halborn.com/)
 
 Audit reports:
 
