@@ -207,19 +207,19 @@ _Consider that LiquidswapLP is an independent module inside the liquiswap reposi
 The `LP` coins type for pairs `X` and `Y` is represented as `LP<X, Y, Curve>` and deployed on the following resource account:
 
 ```
-0x385068db10693e06512ed54b1e6e8f1fb9945bb7a78c28a45585939ce953f99e
+0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948
 ```
 
 The LP coin registers automatically for each new liquidity pool, and generics are always sorted.
 
-For `APT/BTC` uncorrelated pool, the LP coin would look so:
+For `APT/BTC` uncorrelated pool, the LP coin would look so (_the coins addresses are testnet_) :
 
 ```
 
-0x385068db10693e06512ed54b1e6e8f1fb9945bb7a78c28a45585939ce953f99e::lp_coin::LP<
+0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948::lp_coin::LP<
     0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::coins::BTC,
     0x1::aptos_coin::AptosCoin,
-    0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::curves::Uncorrelated,
+    0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::curves::Uncorrelated,
 >
 ```
 
