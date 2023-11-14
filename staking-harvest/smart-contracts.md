@@ -20,7 +20,11 @@ The **mainnet** address used to deploy is as follows:
 0xbaaf53f7b9017ec4be9623c60b6182f2ffba1f01bc67f292295bcfe17f327701
 ```
 
-The **testnet** addresses can be found in the following [PR](https://github.com/pontem-network/harvest/pull/38).&#x20;
+The **testnet** addresses used:
+
+```
+0xc4d5cb0e84c7dfc3498d38dcbe1a898b694c2a8c274fbc99696b7773fe75b381
+```
 
 ### Staking contract
 
