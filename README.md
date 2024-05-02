@@ -62,6 +62,12 @@ Website - [https://www.zellic.io/](https://www.zellic.io/)
 
 {% file src=".gitbook/assets/pontem-liquidswap-report-zellic.pdf" %}
 
+### Movebit
+
+Website - [https://www.movebit.xyz](https://www.movebit.xyz)
+
+{% file src=".gitbook/assets/Pontem Liquidity Swap Formal Verification Audit Report.pdf" %}
+
 ## Bounty Program
 
 ![](<.gitbook/assets/Logo black.svg>)
